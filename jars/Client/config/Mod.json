@@ -1,0 +1,82 @@
+{
+  "Logo": {
+    "enable": false,
+    "key": 0
+  },
+  "Sprint": {
+    "enable": false,
+    "key": 47
+  },
+  "ModList": {
+    "enable": false,
+    "key": 24
+  },
+  "HitBox": {
+    "enable": false,
+    "key": 0
+  },
+  "Tab": {
+    "enable": false,
+    "key": 0
+  },
+  "AutoAttack": {
+    "enable": false,
+    "key": 19
+  },
+  "QuickTab": {
+    "enable": false,
+    "key": 0
+  },
+  "TargetInfo": {
+    "enable": false,
+    "key": 0
+  },
+  "FastPlace": {
+    "enable": false,
+    "key": 0
+  },
+  "KeyBoard": {
+    "enable": false,
+    "key": 0
+  },
+  "InventoryMove": {
+    "enable": false,
+    "key": 0
+  },
+  "FallWater": {
+    "enable": false,
+    "key": 0
+  },
+  "XRay": {
+    "enable": false,
+    "key": 0
+  },
+  "AutoMine": {
+    "enable": false,
+    "key": 0
+  },
+  "ClickGUI": {
+    "enable": false,
+    "key": 54
+  },
+  "Cape": {
+    "enable": false,
+    "key": 0
+  },
+  "SelectBlock": {
+    "enable": false,
+    "key": 0
+  },
+  "NoFall": {
+    "enable": false,
+    "key": 0
+  },
+  "NoHurtCamera": {
+    "enable": false,
+    "key": 0
+  },
+  "NameLabel": {
+    "enable": false,
+    "key": 0
+  }
+}
