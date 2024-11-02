@@ -405,6 +405,7 @@ options.touchscreen=Touchscreen Mode
 options.blockAlternatives=Alternate Blocks
 options.reducedDebugInfo=Reduced Debug Info
 options.entityShadows=Entity Shadows
+options.realmsNotifications=Realms Notifications
 
 options.mipmapLevels=Mipmap Levels
 options.forceUnicodeFont=Force Unicode Font

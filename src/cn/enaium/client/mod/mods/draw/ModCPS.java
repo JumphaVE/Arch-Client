@@ -1,6 +1,5 @@
 package cn.enaium.client.mod.mods.draw;
 
-import cn.enaium.client.Client;
 import cn.enaium.client.mod.Category;
 import cn.enaium.client.mod.Mod;
 import net.minecraft.client.Minecraft;
@@ -39,7 +38,7 @@ public class ModCPS extends Mod {
             }
         }
 
-        font.drawString("CPS: " + getCPS(), 450, 20, new Color(0, 140, 255).getRGB());
+        font.drawString("CPS: " + getCPS(), 450, 50, new Color(0, 140, 255).getRGB());
 
     }
 

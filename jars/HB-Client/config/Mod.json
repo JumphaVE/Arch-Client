@@ -19,16 +19,12 @@
     "enable": false,
     "key": 0
   },
-  "AutoAttack": {
-    "enable": false,
-    "key": 19
-  },
   "QuickTab": {
-    "enable": false,
+    "enable": true,
     "key": 0
   },
   "TargetInfo": {
-    "enable": false,
+    "enable": true,
     "key": 0
   },
   "FastPlace": {
@@ -36,7 +32,7 @@
     "key": 0
   },
   "KeyBoard": {
-    "enable": false,
+    "enable": true,
     "key": 0
   },
   "InventoryMove": {
@@ -64,7 +60,7 @@
     "key": 0
   },
   "SelectBlock": {
-    "enable": false,
+    "enable": true,
     "key": 0
   },
   "NoFall": {
@@ -84,6 +80,10 @@
     "key": 0
   },
   "CPS": {
+    "enable": true,
+    "key": 0
+  },
+  "ModArmorStatus": {
     "enable": true,
     "key": 0
   }

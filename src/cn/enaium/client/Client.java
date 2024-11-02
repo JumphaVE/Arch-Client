@@ -10,7 +10,7 @@ import org.lwjgl.opengl.Display;
  * @author Enaium
  */
 public class Client {
-    public static final String NAME = "HB-Client";
+    public static final String NAME = "Client";
     public static final String VERSION = "0.1.0";
     public static ModManager modManager;
     public static ConfigManager configManager;

@@ -1,6 +1,5 @@
 package cn.enaium.client.mod.mods.draw;
 
-import cn.enaium.client.Client;
 import cn.enaium.client.mod.Category;
 import cn.enaium.client.mod.Mod;
 import net.minecraft.client.Minecraft;
@@ -27,7 +26,7 @@ public class ModFPS extends Mod {
 
     public void draw() {
         FontRenderer font = Minecraft.getMinecraft().fontRendererObj;
-        font.drawString("FPS: " + getDebugFPS(), 450, 0, new Color(255, 0, 0).getRGB());
+        font.drawString("FPS: " + getDebugFPS(), 450, 40, new Color(255, 0, 0).getRGB());
     }
 
     public void save() {

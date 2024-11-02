@@ -1,6 +1,5 @@
 package cn.enaium.client.mod;
 
-import cn.enaium.client.mod.mods.combat.AutoAttack;
 import cn.enaium.client.mod.mods.combat.HitBox;
 import cn.enaium.client.mod.mods.draw.*;
 import cn.enaium.client.mod.mods.movement.InventoryMove;
@@ -44,7 +43,6 @@ public class ModManager {
         mods.add(new ModListMod());
         mods.add(new RenderHitBoxMod());
         mods.add(new TabMod());
-        mods.add(new AutoAttack());
         mods.add(new QuickTab());
         mods.add(new TargetInfoMod());
         mods.add(new FastPlace());
@@ -60,8 +58,6 @@ public class ModManager {
         mods.add(new NoFall());
         mods.add(new NoHurtCamera());
         mods.add(new NameLabel());
-        mods.add(new ModFPS());
-        mods.add(new ModCPS());
     }
 
     public Mod getByName(String name) {

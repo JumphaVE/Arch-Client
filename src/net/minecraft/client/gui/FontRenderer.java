@@ -854,7 +854,4 @@ public class FontRenderer implements IResourceManagerReloadListener {
     public int getColorCode(char character) {
         return this.colorCode["0123456789abcdef".indexOf(character)];
     }
-
-    public void drawString(String s) {
-    }
 }

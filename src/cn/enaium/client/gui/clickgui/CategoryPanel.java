@@ -52,7 +52,7 @@ public class CategoryPanel {
             y = mouseY + prevY;
         }
 
-        int background = new Color(0, 140, 255, 255).getRGB();
+        int background = new Color(255, 98, 0, 255).getRGB();
         int select = new Color(255, 98, 0, 255).getRGB();
         DrawUtil.drawRect(x, y, width, height, hovered ? select : background);
         FontRenderer fontRendererObj = Minecraft.getMinecraft().fontRendererObj;
