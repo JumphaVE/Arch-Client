@@ -74,5 +74,13 @@
   "NameLabel": {
     "enable": false,
     "key": 0
+  },
+  "FPS": {
+    "enable": true,
+    "key": 0
+  },
+  "CPS": {
+    "enable": true,
+    "key": 0
   }
 }

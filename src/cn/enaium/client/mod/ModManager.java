@@ -58,6 +58,8 @@ public class ModManager {
         mods.add(new NoFall());
         mods.add(new NoHurtCamera());
         mods.add(new NameLabel());
+        mods.add(new ModFPS());
+        mods.add(new ModCPS());
     }
 
     public Mod getByName(String name) {
