@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Arch-Client">
+    <output-path>$PROJECT_DIR$/out/artifacts/Arch-Client</output-path>
+    <root id="archive" name="Arch-Client.jar">
+      <element id="module-output" name="HBClient" />
+    </root>
+  </artifact>
+</component>

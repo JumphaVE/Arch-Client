@@ -1,16 +1,17 @@
 package cn.enaium.client;
 
+import org.lwjgl.opengl.Display;
+
 import cn.enaium.client.command.CommandManager;
 import cn.enaium.client.config.ConfigManager;
 import cn.enaium.client.gui.clickgui.ClickGui;
 import cn.enaium.client.mod.ModManager;
-import org.lwjgl.opengl.Display;
 
 /**
  * @author Enaium
  */
 public class Client {
-    public static final String NAME = "Client";
+    public static final String NAME = "Arch-Client";
     public static final String VERSION = "0.1.0";
     public static ModManager modManager;
     public static ConfigManager configManager;
