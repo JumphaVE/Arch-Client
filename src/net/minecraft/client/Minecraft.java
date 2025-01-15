@@ -28,6 +28,7 @@ import java.util.concurrent.FutureTask;
 
 import javax.imageio.ImageIO;
 
+import me.wavelength.baseclient.MainMenuGui;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
@@ -579,9 +580,9 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
 		this.ingameGUI = new GuiIngame(this);
 
 		if (this.serverName != null) {
-			this.displayGuiScreen(new GuiConnecting(new GuiMainMenu(), this, this.serverName, this.serverPort));
+			this.displayGuiScreen(new GuiConnecting(new MainMenuGui(), this, this.serverName, this.serverPort));
 		} else {
-			this.displayGuiScreen(new GuiMainMenu());
+			this.displayGuiScreen(new MainMenuGui());
 		}
 
 		this.renderEngine.deleteTexture(this.mojangLogo);
@@ -925,12 +926,12 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
 		}
 
 		if (guiScreenIn == null && this.theWorld == null) {
-			guiScreenIn = new GuiMainMenu();
+			guiScreenIn = new MainMenuGui();
 		} else if (guiScreenIn == null && this.thePlayer.getHealth() <= 0.0F) {
 			guiScreenIn = new GuiGameOver();
 		}
 
-		if (guiScreenIn instanceof GuiMainMenu) {
+		if (guiScreenIn instanceof MainMenuGui) {
 			this.gameSettings.showDebugInfo = false;
 			this.ingameGUI.getChatGUI().clearChatMessages();
 		}

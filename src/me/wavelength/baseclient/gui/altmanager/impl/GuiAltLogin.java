@@ -2,13 +2,13 @@ package me.wavelength.baseclient.gui.altmanager.impl;
 
 import java.io.IOException;
 
+import net.minecraft.client.gui.GuiButton;
 import org.lwjgl.input.Keyboard;
 
 import me.wavelength.baseclient.account.Account;
 import me.wavelength.baseclient.gui.altmanager.components.GuiPasswordField;
 import me.wavelength.baseclient.gui.altmanager.thread.AccountLoginThread;
 import me.wavelength.baseclient.utils.Strings;
-import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 

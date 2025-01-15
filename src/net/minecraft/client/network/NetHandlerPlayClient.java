@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.UUID;
 
+import me.wavelength.baseclient.MainMenuGui;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -698,7 +699,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient {
 				this.gameController.displayGuiScreen(new GuiDisconnected(this.guiScreenServer, "disconnect.lost", reason));
 			}
 		} else {
-			this.gameController.displayGuiScreen(new GuiDisconnected(new GuiMultiplayer(new GuiMainMenu()), "disconnect.lost", reason));
+			this.gameController.displayGuiScreen(new GuiDisconnected(new GuiMultiplayer(new MainMenuGui()), "disconnect.lost", reason));
 		}
 	}
 

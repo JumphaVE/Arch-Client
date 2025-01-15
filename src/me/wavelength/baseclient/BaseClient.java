@@ -25,6 +25,8 @@ import net.minecraft.client.resources.Locale;
 
 public class BaseClient {
 
+	public static String NAME;
+	public static String VERSION;
 	/**
 	 * @formatter:off
 	 * Credits

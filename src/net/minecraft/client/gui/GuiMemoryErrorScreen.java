@@ -2,6 +2,7 @@ package net.minecraft.client.gui;
 
 import java.io.IOException;
 
+import me.wavelength.baseclient.MainMenuGui;
 import net.minecraft.client.resources.I18n;
 
 public class GuiMemoryErrorScreen extends GuiScreen {
@@ -22,7 +23,7 @@ public class GuiMemoryErrorScreen extends GuiScreen {
 	 */
 	protected void actionPerformed(GuiButton button) throws IOException {
 		if (button.id == 0) {
-			this.mc.displayGuiScreen(new GuiMainMenu());
+			this.mc.displayGuiScreen(new MainMenuGui());
 		} else if (button.id == 1) {
 			this.mc.shutdown();
 		}

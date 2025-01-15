@@ -3,17 +3,13 @@ package me.wavelength.baseclient.gui.altmanager.impl;
 import java.io.IOException;
 import java.util.Objects;
 
+import net.minecraft.client.gui.*;
 import org.lwjgl.input.Keyboard;
 
 import me.wavelength.baseclient.BaseClient;
 import me.wavelength.baseclient.gui.altmanager.thread.AccountLoginThread;
 import me.wavelength.baseclient.thealtening.AlteningAlt;
 import me.wavelength.baseclient.thealtening.TheAltening;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiMultiplayer;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.GuiTextField;
-import net.minecraft.client.gui.ScaledResolution;
 
 public class GuiAlteningLogin extends GuiScreen {
 
