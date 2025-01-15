@@ -49,7 +49,7 @@ public class EntityMinecartEmpty extends EntityMinecart {
 		}
 	}
 
-	public EntityMinecart.EnumMinecartType getMinecartType() {
-		return EntityMinecart.EnumMinecartType.RIDEABLE;
+	public EnumMinecartType getMinecartType() {
+		return EnumMinecartType.RIDEABLE;
 	}
 }

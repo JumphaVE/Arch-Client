@@ -25,14 +25,14 @@ import net.minecraft.world.gen.FlatGeneratorInfo;
 import net.minecraft.world.gen.FlatLayerInfo;
 
 public class GuiFlatPresets extends GuiScreen {
-	private static final List<GuiFlatPresets.LayerItem> FLAT_WORLD_PRESETS = Lists.<GuiFlatPresets.LayerItem>newArrayList();
+	private static final List<LayerItem> FLAT_WORLD_PRESETS = Lists.<LayerItem>newArrayList();
 
 	/** The parent GUI */
 	private final GuiCreateFlatWorld parentScreen;
 	private String presetsTitle;
 	private String presetsShare;
 	private String field_146436_r;
-	private GuiFlatPresets.ListSlot field_146435_s;
+	private ListSlot field_146435_s;
 	private GuiButton field_146434_t;
 	private GuiTextField field_146433_u;
 
@@ -52,7 +52,7 @@ public class GuiFlatPresets extends GuiScreen {
 		this.presetsShare = I18n.format("createWorld.customize.presets.share", new Object[0]);
 		this.field_146436_r = I18n.format("createWorld.customize.presets.list", new Object[0]);
 		this.field_146433_u = new GuiTextField(2, this.fontRendererObj, 50, 40, this.width - 100, 20);
-		this.field_146435_s = new GuiFlatPresets.ListSlot();
+		this.field_146435_s = new ListSlot();
 		this.field_146433_u.setMaxStringLength(1230);
 		this.field_146433_u.setText(this.parentScreen.func_146384_e());
 		this.buttonList.add(this.field_146434_t = new GuiButton(0, this.width / 2 - 155, this.height - 28, 150, 20, I18n.format("createWorld.customize.presets.select", new Object[0])));
@@ -162,7 +162,7 @@ public class GuiFlatPresets extends GuiScreen {
 			}
 		}
 
-		FLAT_WORLD_PRESETS.add(new GuiFlatPresets.LayerItem(p_175354_1_, p_175354_2_, p_175354_0_, flatgeneratorinfo.toString()));
+		FLAT_WORLD_PRESETS.add(new LayerItem(p_175354_1_, p_175354_2_, p_175354_0_, flatgeneratorinfo.toString()));
 	}
 
 	static {
@@ -234,7 +234,7 @@ public class GuiFlatPresets extends GuiScreen {
 		protected void elementClicked(int slotIndex, boolean isDoubleClick, int mouseX, int mouseY) {
 			this.field_148175_k = slotIndex;
 			GuiFlatPresets.this.func_146426_g();
-			GuiFlatPresets.this.field_146433_u.setText(((GuiFlatPresets.LayerItem) GuiFlatPresets.FLAT_WORLD_PRESETS.get(GuiFlatPresets.this.field_146435_s.field_148175_k)).field_148233_c);
+			GuiFlatPresets.this.field_146433_u.setText(((LayerItem) GuiFlatPresets.FLAT_WORLD_PRESETS.get(GuiFlatPresets.this.field_146435_s.field_148175_k)).field_148233_c);
 		}
 
 		protected boolean isSelected(int slotIndex) {
@@ -245,7 +245,7 @@ public class GuiFlatPresets extends GuiScreen {
 		}
 
 		protected void drawSlot(int entryID, int p_180791_2_, int p_180791_3_, int p_180791_4_, int mouseXIn, int mouseYIn) {
-			GuiFlatPresets.LayerItem guiflatpresets$layeritem = (GuiFlatPresets.LayerItem) GuiFlatPresets.FLAT_WORLD_PRESETS.get(entryID);
+			LayerItem guiflatpresets$layeritem = (LayerItem) GuiFlatPresets.FLAT_WORLD_PRESETS.get(entryID);
 			this.func_178054_a(p_180791_2_, p_180791_3_, guiflatpresets$layeritem.field_148234_a, guiflatpresets$layeritem.field_179037_b);
 			GuiFlatPresets.this.fontRendererObj.drawString(guiflatpresets$layeritem.field_148232_b, p_180791_2_ + 18 + 5, p_180791_3_ + 6, 16777215);
 		}

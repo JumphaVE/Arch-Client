@@ -11,7 +11,7 @@ public class BlockBrightnessRequestEvent extends Event {
 
 	/**
 	 * @formatter:off
-	 * This event is fired by the Block class: {@link net.minecraft.block.Block#getMixedBrightnessForBlock}
+	 * This event is fired by the Block class: {@link Block#getMixedBrightnessForBlock}
 	 * 
 	 * The block's brightness is defaulted to -1
 	 * 

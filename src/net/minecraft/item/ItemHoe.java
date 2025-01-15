@@ -12,9 +12,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 public class ItemHoe extends Item {
-	protected Item.ToolMaterial theToolMaterial;
+	protected ToolMaterial theToolMaterial;
 
-	public ItemHoe(Item.ToolMaterial material) {
+	public ItemHoe(ToolMaterial material) {
 		this.theToolMaterial = material;
 		this.maxStackSize = 1;
 		this.setMaxDamage(material.getMaxUses());

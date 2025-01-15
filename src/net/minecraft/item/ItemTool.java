@@ -20,9 +20,9 @@ public class ItemTool extends Item {
 	private float damageVsEntity;
 
 	/** The material this tool is made from. */
-	protected Item.ToolMaterial toolMaterial;
+	protected ToolMaterial toolMaterial;
 
-	protected ItemTool(float attackDamage, Item.ToolMaterial material, Set<Block> effectiveBlocks) {
+	protected ItemTool(float attackDamage, ToolMaterial material, Set<Block> effectiveBlocks) {
 		this.toolMaterial = material;
 		this.effectiveBlocks = effectiveBlocks;
 		this.maxStackSize = 1;
@@ -64,7 +64,7 @@ public class ItemTool extends Item {
 		return true;
 	}
 
-	public Item.ToolMaterial getToolMaterial() {
+	public ToolMaterial getToolMaterial() {
 		return this.toolMaterial;
 	}
 

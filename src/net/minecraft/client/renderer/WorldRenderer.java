@@ -136,7 +136,7 @@ public class WorldRenderer {
 		}
 	}
 
-	public WorldRenderer.State func_181672_a() {
+	public State func_181672_a() {
 		this.rawIntBuffer.rewind();
 		int i = this.func_181664_j();
 		this.rawIntBuffer.limit(i);
@@ -152,7 +152,7 @@ public class WorldRenderer {
 			System.arraycopy(this.quadSprites, 0, atextureatlassprite, 0, j);
 		}
 
-		return new WorldRenderer.State(aint, new VertexFormat(this.vertexFormat), atextureatlassprite);
+		return new State(aint, new VertexFormat(this.vertexFormat), atextureatlassprite);
 	}
 
 	private int func_181664_j() {
@@ -178,7 +178,7 @@ public class WorldRenderer {
 		return f12 * f12 + f13 * f13 + f14 * f14;
 	}
 
-	public void setVertexState(WorldRenderer.State state) {
+	public void setVertexState(State state) {
 		this.rawIntBuffer.clear();
 		this.func_181670_b(state.getRawBuffer().length);
 		this.rawIntBuffer.put(state.getRawBuffer());
@@ -235,7 +235,7 @@ public class WorldRenderer {
 
 		int i = this.vertexCount * this.vertexFormat.getNextOffset() + this.vertexFormat.func_181720_d(this.field_181678_g);
 
-		switch (WorldRenderer.WorldRenderer$2.field_181661_a[this.field_181677_f.getType().ordinal()]) {
+		switch (WorldRenderer$2.field_181661_a[this.field_181677_f.getType().ordinal()]) {
 		case 1:
 			this.byteBuffer.putFloat(i, (float) p_181673_1_);
 			this.byteBuffer.putFloat(i + 4, (float) p_181673_3_);
@@ -266,7 +266,7 @@ public class WorldRenderer {
 	public WorldRenderer lightmap(int p_181671_1_, int p_181671_2_) {
 		int i = this.vertexCount * this.vertexFormat.getNextOffset() + this.vertexFormat.func_181720_d(this.field_181678_g);
 
-		switch (WorldRenderer.WorldRenderer$2.field_181661_a[this.field_181677_f.getType().ordinal()]) {
+		switch (WorldRenderer$2.field_181661_a[this.field_181677_f.getType().ordinal()]) {
 		case 1:
 			this.byteBuffer.putFloat(i, (float) p_181671_1_);
 			this.byteBuffer.putFloat(i + 4, (float) p_181671_2_);
@@ -391,7 +391,7 @@ public class WorldRenderer {
 		} else {
 			int i = this.vertexCount * this.vertexFormat.getNextOffset() + this.vertexFormat.func_181720_d(this.field_181678_g);
 
-			switch (WorldRenderer.WorldRenderer$2.field_181661_a[this.field_181677_f.getType().ordinal()]) {
+			switch (WorldRenderer$2.field_181661_a[this.field_181677_f.getType().ordinal()]) {
 			case 1:
 				this.byteBuffer.putFloat(i, (float) p_181669_1_ / 255.0F);
 				this.byteBuffer.putFloat(i + 4, (float) p_181669_2_ / 255.0F);
@@ -450,7 +450,7 @@ public class WorldRenderer {
 	public WorldRenderer pos(double p_181662_1_, double p_181662_3_, double p_181662_5_) {
 		int i = this.vertexCount * this.vertexFormat.getNextOffset() + this.vertexFormat.func_181720_d(this.field_181678_g);
 
-		switch (WorldRenderer.WorldRenderer$2.field_181661_a[this.field_181677_f.getType().ordinal()]) {
+		switch (WorldRenderer$2.field_181661_a[this.field_181677_f.getType().ordinal()]) {
 		case 1:
 			this.byteBuffer.putFloat(i, (float) (p_181662_1_ + this.xOffset));
 			this.byteBuffer.putFloat(i + 4, (float) (p_181662_3_ + this.yOffset));
@@ -508,7 +508,7 @@ public class WorldRenderer {
 	public WorldRenderer normal(float p_181663_1_, float p_181663_2_, float p_181663_3_) {
 		int i = this.vertexCount * this.vertexFormat.getNextOffset() + this.vertexFormat.func_181720_d(this.field_181678_g);
 
-		switch (WorldRenderer.WorldRenderer$2.field_181661_a[this.field_181677_f.getType().ordinal()]) {
+		switch (WorldRenderer$2.field_181661_a[this.field_181677_f.getType().ordinal()]) {
 		case 1:
 			this.byteBuffer.putFloat(i, p_181663_1_);
 			this.byteBuffer.putFloat(i + 4, p_181663_2_);

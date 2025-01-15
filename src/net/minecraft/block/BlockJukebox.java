@@ -42,8 +42,8 @@ public class BlockJukebox extends BlockContainer {
 		if (!worldIn.isRemote) {
 			TileEntity tileentity = worldIn.getTileEntity(pos);
 
-			if (tileentity instanceof BlockJukebox.TileEntityJukebox) {
-				((BlockJukebox.TileEntityJukebox) tileentity).setRecord(new ItemStack(recordStack.getItem(), 1, recordStack.getMetadata()));
+			if (tileentity instanceof TileEntityJukebox) {
+				((TileEntityJukebox) tileentity).setRecord(new ItemStack(recordStack.getItem(), 1, recordStack.getMetadata()));
 				worldIn.setBlockState(pos, state.withProperty(HAS_RECORD, Boolean.valueOf(true)), 2);
 			}
 		}
@@ -53,8 +53,8 @@ public class BlockJukebox extends BlockContainer {
 		if (!worldIn.isRemote) {
 			TileEntity tileentity = worldIn.getTileEntity(pos);
 
-			if (tileentity instanceof BlockJukebox.TileEntityJukebox) {
-				BlockJukebox.TileEntityJukebox blockjukebox$tileentityjukebox = (BlockJukebox.TileEntityJukebox) tileentity;
+			if (tileentity instanceof TileEntityJukebox) {
+				TileEntityJukebox blockjukebox$tileentityjukebox = (TileEntityJukebox) tileentity;
 				ItemStack itemstack = blockjukebox$tileentityjukebox.getRecord();
 
 				if (itemstack != null) {
@@ -93,7 +93,7 @@ public class BlockJukebox extends BlockContainer {
 	 * block.
 	 */
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new BlockJukebox.TileEntityJukebox();
+		return new TileEntityJukebox();
 	}
 
 	public boolean hasComparatorInputOverride() {
@@ -103,8 +103,8 @@ public class BlockJukebox extends BlockContainer {
 	public int getComparatorInputOverride(World worldIn, BlockPos pos) {
 		TileEntity tileentity = worldIn.getTileEntity(pos);
 
-		if (tileentity instanceof BlockJukebox.TileEntityJukebox) {
-			ItemStack itemstack = ((BlockJukebox.TileEntityJukebox) tileentity).getRecord();
+		if (tileentity instanceof TileEntityJukebox) {
+			ItemStack itemstack = ((TileEntityJukebox) tileentity).getRecord();
 
 			if (itemstack != null) {
 				return Item.getIdFromItem(itemstack.getItem()) + 1 - Item.getIdFromItem(Items.record_13);

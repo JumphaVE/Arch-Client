@@ -26,11 +26,11 @@ public class BlockWall extends Block {
 	public static final PropertyBool EAST = PropertyBool.create("east");
 	public static final PropertyBool SOUTH = PropertyBool.create("south");
 	public static final PropertyBool WEST = PropertyBool.create("west");
-	public static final PropertyEnum<BlockWall.EnumType> VARIANT = PropertyEnum.<BlockWall.EnumType>create("variant", BlockWall.EnumType.class);
+	public static final PropertyEnum<EnumType> VARIANT = PropertyEnum.<EnumType>create("variant", EnumType.class);
 
 	public BlockWall(Block modelBlock) {
 		super(modelBlock.blockMaterial);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false)).withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)).withProperty(VARIANT, BlockWall.EnumType.NORMAL));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false)).withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)).withProperty(VARIANT, EnumType.NORMAL));
 		this.setHardness(modelBlock.blockHardness);
 		this.setResistance(modelBlock.blockResistance / 3.0F);
 		this.setStepSound(modelBlock.stepSound);
@@ -41,7 +41,7 @@ public class BlockWall extends Block {
 	 * Gets the localized name of this block. Used for the statistics page.
 	 */
 	public String getLocalizedName() {
-		return StatCollector.translateToLocal(this.getUnlocalizedName() + "." + BlockWall.EnumType.NORMAL.getUnlocalizedName() + ".name");
+		return StatCollector.translateToLocal(this.getUnlocalizedName() + "." + EnumType.NORMAL.getUnlocalizedName() + ".name");
 	}
 
 	public boolean isFullCube() {
@@ -116,7 +116,7 @@ public class BlockWall extends Block {
 	 * returns 4 blocks)
 	 */
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
-		for (BlockWall.EnumType blockwall$enumtype : BlockWall.EnumType.values()) {
+		for (EnumType blockwall$enumtype : EnumType.values()) {
 			list.add(new ItemStack(itemIn, 1, blockwall$enumtype.getMetadata()));
 		}
 	}
@@ -127,7 +127,7 @@ public class BlockWall extends Block {
 	 * on the old metadata of the block.
 	 */
 	public int damageDropped(IBlockState state) {
-		return ((BlockWall.EnumType) state.getValue(VARIANT)).getMetadata();
+		return ((EnumType) state.getValue(VARIANT)).getMetadata();
 	}
 
 	public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side) {
@@ -138,14 +138,14 @@ public class BlockWall extends Block {
 	 * Convert the given metadata into a BlockState for this Block
 	 */
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(VARIANT, BlockWall.EnumType.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, EnumType.byMetadata(meta));
 	}
 
 	/**
 	 * Convert the BlockState into the correct metadata value
 	 */
 	public int getMetaFromState(IBlockState state) {
-		return ((BlockWall.EnumType) state.getValue(VARIANT)).getMetadata();
+		return ((EnumType) state.getValue(VARIANT)).getMetadata();
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class BlockWall extends Block {
 	public static enum EnumType implements IStringSerializable {
 		NORMAL(0, "cobblestone", "normal"), MOSSY(1, "mossy_cobblestone", "mossy");
 
-		private static final BlockWall.EnumType[] META_LOOKUP = new BlockWall.EnumType[values().length];
+		private static final EnumType[] META_LOOKUP = new EnumType[values().length];
 		private final int meta;
 		private final String name;
 		private String unlocalizedName;
@@ -182,7 +182,7 @@ public class BlockWall extends Block {
 			return this.name;
 		}
 
-		public static BlockWall.EnumType byMetadata(int meta) {
+		public static EnumType byMetadata(int meta) {
 			if (meta < 0 || meta >= META_LOOKUP.length) {
 				meta = 0;
 			}
@@ -199,7 +199,7 @@ public class BlockWall extends Block {
 		}
 
 		static {
-			for (BlockWall.EnumType blockwall$enumtype : values()) {
+			for (EnumType blockwall$enumtype : values()) {
 				META_LOOKUP[blockwall$enumtype.getMetadata()] = blockwall$enumtype;
 			}
 		}

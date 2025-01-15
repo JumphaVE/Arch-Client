@@ -27,7 +27,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class ModelBlock {
 	private static final Logger LOGGER = LogManager.getLogger();
-	static final Gson SERIALIZER = (new GsonBuilder()).registerTypeAdapter(ModelBlock.class, new ModelBlock.Deserializer()).registerTypeAdapter(BlockPart.class, new BlockPart.Deserializer()).registerTypeAdapter(BlockPartFace.class, new BlockPartFace.Deserializer()).registerTypeAdapter(BlockFaceUV.class, new BlockFaceUV.Deserializer()).registerTypeAdapter(ItemTransformVec3f.class, new ItemTransformVec3f.Deserializer()).registerTypeAdapter(ItemCameraTransforms.class, new ItemCameraTransforms.Deserializer()).create();
+	static final Gson SERIALIZER = (new GsonBuilder()).registerTypeAdapter(ModelBlock.class, new Deserializer()).registerTypeAdapter(BlockPart.class, new BlockPart.Deserializer()).registerTypeAdapter(BlockPartFace.class, new BlockPartFace.Deserializer()).registerTypeAdapter(BlockFaceUV.class, new BlockFaceUV.Deserializer()).registerTypeAdapter(ItemTransformVec3f.class, new ItemTransformVec3f.Deserializer()).registerTypeAdapter(ItemCameraTransforms.class, new ItemCameraTransforms.Deserializer()).create();
 	private final List<BlockPart> elements;
 	private final boolean gui3d;
 	private final boolean ambientOcclusion;
@@ -98,10 +98,10 @@ public class ModelBlock {
 			textureName = '#' + textureName;
 		}
 
-		return this.resolveTextureName(textureName, new ModelBlock.Bookkeep(this));
+		return this.resolveTextureName(textureName, new Bookkeep(this));
 	}
 
-	private String resolveTextureName(String textureName, ModelBlock.Bookkeep p_178302_2_) {
+	private String resolveTextureName(String textureName, Bookkeep p_178302_2_) {
 		if (this.startsWithHash(textureName)) {
 			if (this == p_178302_2_.modelExt) {
 				LOGGER.warn("Unable to resolve texture due to upward reference: " + textureName + " in " + this.name);
@@ -161,7 +161,7 @@ public class ModelBlock {
 					modelblock1 = modelblock1.parent;
 				}
 
-				throw new ModelBlock.LoopException();
+				throw new LoopException();
 			} catch (NullPointerException var5) {
 				;
 			}

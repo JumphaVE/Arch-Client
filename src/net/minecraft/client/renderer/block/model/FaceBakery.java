@@ -48,7 +48,7 @@ public class FaceBakery {
 	}
 
 	private float getFaceBrightness(EnumFacing facing) {
-		switch (FaceBakery.FaceBakery$1.field_178400_a[facing.ordinal()]) {
+		switch (FaceBakery$1.field_178400_a[facing.ordinal()]) {
 		case 1:
 			return 0.5F;
 
@@ -104,7 +104,7 @@ public class FaceBakery {
 			Matrix4f matrix4f = this.getMatrixIdentity();
 			Vector3f vector3f = new Vector3f(0.0F, 0.0F, 0.0F);
 
-			switch (FaceBakery.FaceBakery$1.field_178399_b[partRotation.axis.ordinal()]) {
+			switch (FaceBakery$1.field_178399_b[partRotation.axis.ordinal()]) {
 			case 1:
 				Matrix4f.rotate(partRotation.angle * 0.017453292F, new Vector3f(1.0F, 0.0F, 0.0F), matrix4f, matrix4f);
 				vector3f.set(0.0F, 1.0F, 1.0F);
@@ -294,7 +294,7 @@ public class FaceBakery {
 		float f3 = 0.0F;
 		float f4 = 0.0F;
 
-		switch (FaceBakery.FaceBakery$1.field_178400_a[facing.ordinal()]) {
+		switch (FaceBakery$1.field_178400_a[facing.ordinal()]) {
 		case 1:
 			f3 = f * 16.0F;
 			f4 = (1.0F - f2) * 16.0F;

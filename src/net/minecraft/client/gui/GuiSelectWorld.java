@@ -28,7 +28,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 	private boolean field_146634_i;
 	private int field_146640_r;
 	private java.util.List<SaveFormatComparator> field_146639_s;
-	private GuiSelectWorld.List field_146638_t;
+	private List field_146638_t;
 	private String field_146637_u;
 	private String field_146636_v;
 	private String[] field_146635_w = new String[4];
@@ -64,7 +64,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback {
 		this.field_146635_w[WorldSettings.GameType.CREATIVE.getID()] = I18n.format("gameMode.creative", new Object[0]);
 		this.field_146635_w[WorldSettings.GameType.ADVENTURE.getID()] = I18n.format("gameMode.adventure", new Object[0]);
 		this.field_146635_w[WorldSettings.GameType.SPECTATOR.getID()] = I18n.format("gameMode.spectator", new Object[0]);
-		this.field_146638_t = new GuiSelectWorld.List(this.mc);
+		this.field_146638_t = new List(this.mc);
 		this.field_146638_t.registerScrollButtons(4, 5);
 		this.func_146618_g();
 	}

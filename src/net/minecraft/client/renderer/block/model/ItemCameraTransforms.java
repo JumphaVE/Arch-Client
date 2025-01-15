@@ -50,7 +50,7 @@ public class ItemCameraTransforms {
 		this.fixed = p_i46444_6_;
 	}
 
-	public void applyTransform(ItemCameraTransforms.TransformType p_181689_1_) {
+	public void applyTransform(TransformType p_181689_1_) {
 		ItemTransformVec3f itemtransformvec3f = this.getTransform(p_181689_1_);
 
 		if (itemtransformvec3f != ItemTransformVec3f.DEFAULT) {
@@ -62,7 +62,7 @@ public class ItemCameraTransforms {
 		}
 	}
 
-	public ItemTransformVec3f getTransform(ItemCameraTransforms.TransformType p_181688_1_) {
+	public ItemTransformVec3f getTransform(TransformType p_181688_1_) {
 		switch (p_181688_1_) {
 		case THIRD_PERSON:
 			return this.thirdPerson;
@@ -87,7 +87,7 @@ public class ItemCameraTransforms {
 		}
 	}
 
-	public boolean func_181687_c(ItemCameraTransforms.TransformType p_181687_1_) {
+	public boolean func_181687_c(TransformType p_181687_1_) {
 		return !this.getTransform(p_181687_1_).equals(ItemTransformVec3f.DEFAULT);
 	}
 

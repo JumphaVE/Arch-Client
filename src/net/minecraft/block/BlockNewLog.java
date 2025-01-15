@@ -21,7 +21,7 @@ public class BlockNewLog extends BlockLog {
 	});
 
 	public BlockNewLog() {
-		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockPlanks.EnumType.ACACIA).withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockPlanks.EnumType.ACACIA).withProperty(LOG_AXIS, EnumAxis.Y));
 	}
 
 	/**
@@ -30,7 +30,7 @@ public class BlockNewLog extends BlockLog {
 	public MapColor getMapColor(IBlockState state) {
 		BlockPlanks.EnumType blockplanks$enumtype = (BlockPlanks.EnumType) state.getValue(VARIANT);
 
-		switch ((BlockLog.EnumAxis) state.getValue(LOG_AXIS)) {
+		switch ((EnumAxis) state.getValue(LOG_AXIS)) {
 		case X:
 		case Z:
 		case NONE:
@@ -66,19 +66,19 @@ public class BlockNewLog extends BlockLog {
 
 		switch (meta & 12) {
 		case 0:
-			iblockstate = iblockstate.withProperty(LOG_AXIS, BlockLog.EnumAxis.Y);
+			iblockstate = iblockstate.withProperty(LOG_AXIS, EnumAxis.Y);
 			break;
 
 		case 4:
-			iblockstate = iblockstate.withProperty(LOG_AXIS, BlockLog.EnumAxis.X);
+			iblockstate = iblockstate.withProperty(LOG_AXIS, EnumAxis.X);
 			break;
 
 		case 8:
-			iblockstate = iblockstate.withProperty(LOG_AXIS, BlockLog.EnumAxis.Z);
+			iblockstate = iblockstate.withProperty(LOG_AXIS, EnumAxis.Z);
 			break;
 
 		default:
-			iblockstate = iblockstate.withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE);
+			iblockstate = iblockstate.withProperty(LOG_AXIS, EnumAxis.NONE);
 		}
 
 		return iblockstate;
@@ -93,7 +93,7 @@ public class BlockNewLog extends BlockLog {
 		int i = 0;
 		i = i | ((BlockPlanks.EnumType) state.getValue(VARIANT)).getMetadata() - 4;
 
-		switch ((BlockLog.EnumAxis) state.getValue(LOG_AXIS)) {
+		switch ((EnumAxis) state.getValue(LOG_AXIS)) {
 		case X:
 			i |= 4;
 			break;

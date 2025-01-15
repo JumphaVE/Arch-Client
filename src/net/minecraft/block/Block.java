@@ -43,17 +43,17 @@ public class Block {
 	public static final RegistryNamespacedDefaultedByKey<ResourceLocation, Block> blockRegistry = new RegistryNamespacedDefaultedByKey<ResourceLocation, Block>(AIR_ID);
 	public static final ObjectIntIdentityMap BLOCK_STATE_IDS = new ObjectIntIdentityMap();
 	private CreativeTabs displayOnCreativeTab;
-	public static final Block.SoundType soundTypeStone = new Block.SoundType("stone", 1.0F, 1.0F);
+	public static final SoundType soundTypeStone = new SoundType("stone", 1.0F, 1.0F);
 
 	/** the wood sound type */
-	public static final Block.SoundType soundTypeWood = new Block.SoundType("wood", 1.0F, 1.0F);
+	public static final SoundType soundTypeWood = new SoundType("wood", 1.0F, 1.0F);
 
 	/** the gravel sound type */
-	public static final Block.SoundType soundTypeGravel = new Block.SoundType("gravel", 1.0F, 1.0F);
-	public static final Block.SoundType soundTypeGrass = new Block.SoundType("grass", 1.0F, 1.0F);
-	public static final Block.SoundType soundTypePiston = new Block.SoundType("stone", 1.0F, 1.0F);
-	public static final Block.SoundType soundTypeMetal = new Block.SoundType("stone", 1.0F, 1.5F);
-	public static final Block.SoundType soundTypeGlass = new Block.SoundType("stone", 1.0F, 1.0F) {
+	public static final SoundType soundTypeGravel = new SoundType("gravel", 1.0F, 1.0F);
+	public static final SoundType soundTypeGrass = new SoundType("grass", 1.0F, 1.0F);
+	public static final SoundType soundTypePiston = new SoundType("stone", 1.0F, 1.0F);
+	public static final SoundType soundTypeMetal = new SoundType("stone", 1.0F, 1.5F);
+	public static final SoundType soundTypeGlass = new SoundType("stone", 1.0F, 1.0F) {
 		public String getBreakSound() {
 			return "dig.glass";
 		}
@@ -62,15 +62,15 @@ public class Block {
 			return "step.stone";
 		}
 	};
-	public static final Block.SoundType soundTypeCloth = new Block.SoundType("cloth", 1.0F, 1.0F);
-	public static final Block.SoundType soundTypeSand = new Block.SoundType("sand", 1.0F, 1.0F);
-	public static final Block.SoundType soundTypeSnow = new Block.SoundType("snow", 1.0F, 1.0F);
-	public static final Block.SoundType soundTypeLadder = new Block.SoundType("ladder", 1.0F, 1.0F) {
+	public static final SoundType soundTypeCloth = new SoundType("cloth", 1.0F, 1.0F);
+	public static final SoundType soundTypeSand = new SoundType("sand", 1.0F, 1.0F);
+	public static final SoundType soundTypeSnow = new SoundType("snow", 1.0F, 1.0F);
+	public static final SoundType soundTypeLadder = new SoundType("ladder", 1.0F, 1.0F) {
 		public String getBreakSound() {
 			return "dig.wood";
 		}
 	};
-	public static final Block.SoundType soundTypeAnvil = new Block.SoundType("anvil", 0.3F, 1.0F) {
+	public static final SoundType soundTypeAnvil = new SoundType("anvil", 0.3F, 1.0F) {
 		public String getBreakSound() {
 			return "dig.stone";
 		}
@@ -79,7 +79,7 @@ public class Block {
 			return "random.anvil_land";
 		}
 	};
-	public static final Block.SoundType SLIME_SOUND = new Block.SoundType("slime", 1.0F, 1.0F) {
+	public static final SoundType SLIME_SOUND = new SoundType("slime", 1.0F, 1.0F) {
 		public String getBreakSound() {
 			return "mob.slime.big";
 		}
@@ -128,7 +128,7 @@ public class Block {
 	protected double maxZ;
 
 	/** Sound of stepping on the block */
-	public Block.SoundType stepSound;
+	public SoundType stepSound;
 	public float blockParticleGravity;
 	protected final Material blockMaterial;
 	protected final MapColor field_181083_K;
@@ -271,7 +271,7 @@ public class Block {
 	/**
 	 * Sets the footstep sound for the block. Returns the object for convenience in constructing.
 	 */
-	protected Block setStepSound(Block.SoundType sound) {
+	protected Block setStepSound(SoundType sound) {
 		this.stepSound = sound;
 		return this;
 	}
@@ -1065,8 +1065,8 @@ public class Block {
 	/**
 	 * Get the OffsetType for this Block. Determines if the model is rendered slightly offset.
 	 */
-	public Block.EnumOffsetType getOffsetType() {
-		return Block.EnumOffsetType.NONE;
+	public EnumOffsetType getOffsetType() {
+		return EnumOffsetType.NONE;
 	}
 
 	public String toString() {

@@ -23,9 +23,9 @@ public abstract class NodeProcessor {
 
 	/**
 	 * This method is called when all nodes have been processed and PathEntity is
-	 * created. {@link net.minecraft.world.pathfinder.WalkNodeProcessor
+	 * created. {@link WalkNodeProcessor
 	 * WalkNodeProcessor} uses this to change its field
-	 * {@link net.minecraft.world.pathfinder.WalkNodeProcessor#avoidsWater
+	 * {@link WalkNodeProcessor#avoidsWater
 	 * avoidsWater}
 	 */
 	public void postProcess() {

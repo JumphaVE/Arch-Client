@@ -642,7 +642,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 			label907:
 
 			while (iterator1.hasNext()) {
-				RenderGlobal.ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation = (RenderGlobal.ContainerLocalRenderInformation) iterator1.next();
+				ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation = (ContainerLocalRenderInformation) iterator1.next();
 				Chunk chunk = this.theWorld.getChunkFromBlockCoords(renderglobal$containerlocalrenderinformation.renderChunk.getPosition());
 				ClassInheritanceMultiMap classinheritancemultimap = chunk.getEntityLists()[renderglobal$containerlocalrenderinformation.renderChunk.getPosition().getY() / 16];
 
@@ -698,7 +698,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 			label1318:
 
 			for (Object renderglobal$containerlocalrenderinformation10 : this.renderInfosTileEntities) {
-				RenderGlobal.ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation1 = (RenderGlobal.ContainerLocalRenderInformation) renderglobal$containerlocalrenderinformation10;
+				ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation1 = (ContainerLocalRenderInformation) renderglobal$containerlocalrenderinformation10;
 				List list1 = renderglobal$containerlocalrenderinformation1.renderChunk.getCompiledChunk().getTileEntities();
 
 				if (!list1.isEmpty()) {
@@ -830,7 +830,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 		int j = 0;
 
 		for (Object renderglobal$containerlocalrenderinformation0 : this.renderInfos) {
-			RenderGlobal.ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation = (RenderGlobal.ContainerLocalRenderInformation) renderglobal$containerlocalrenderinformation0;
+			ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation = (ContainerLocalRenderInformation) renderglobal$containerlocalrenderinformation0;
 			CompiledChunk compiledchunk = renderglobal$containerlocalrenderinformation.renderChunk.compiledChunk;
 
 			if (compiledchunk != CompiledChunk.DUMMY && !compiledchunk.isEmpty()) {
@@ -905,7 +905,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 
 			if (renderchunk != null) {
 				boolean flag2 = false;
-				RenderGlobal.ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation3 = new RenderGlobal.ContainerLocalRenderInformation(renderchunk, (EnumFacing) null, 0, (Object) null);
+				ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation3 = new ContainerLocalRenderInformation(renderchunk, (EnumFacing) null, 0, (Object) null);
 				Set set1 = SET_ALL_FACINGS;
 
 				if (set1.size() == 1) {
@@ -937,7 +937,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 
 						if (renderchunk2 != null && ((ICamera) camera).isBoundingBoxInFrustum(renderchunk2.boundingBox)) {
 							renderchunk2.setFrameIndex(frameCount);
-							deque.add(new RenderGlobal.ContainerLocalRenderInformation(renderchunk2, (EnumFacing) null, 0, (Object) null));
+							deque.add(new ContainerLocalRenderInformation(renderchunk2, (EnumFacing) null, 0, (Object) null));
 						}
 					}
 				}
@@ -947,7 +947,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 			int l = aenumfacing.length;
 
 			while (!deque.isEmpty()) {
-				RenderGlobal.ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation = (RenderGlobal.ContainerLocalRenderInformation) deque.poll();
+				ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation = (ContainerLocalRenderInformation) deque.poll();
 				RenderChunk renderchunk1 = renderglobal$containerlocalrenderinformation.renderChunk;
 				EnumFacing enumfacing2 = renderglobal$containerlocalrenderinformation.facing;
 				BlockPos blockpos2 = renderchunk1.getPosition();
@@ -971,7 +971,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 						RenderChunk renderchunk3 = this.func_181562_a(blockpos1, renderchunk1, enumfacing1);
 
 						if (renderchunk3 != null && renderchunk3.setFrameIndex(frameCount) && ((ICamera) camera).isBoundingBoxInFrustum(renderchunk3.boundingBox)) {
-							RenderGlobal.ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation1 = new RenderGlobal.ContainerLocalRenderInformation(renderchunk3, enumfacing1, renderglobal$containerlocalrenderinformation.counter + 1, (Object) null);
+							ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation1 = new ContainerLocalRenderInformation(renderchunk3, enumfacing1, renderglobal$containerlocalrenderinformation.counter + 1, (Object) null);
 							renderglobal$containerlocalrenderinformation1.setFacing.addAll(renderglobal$containerlocalrenderinformation.setFacing);
 							renderglobal$containerlocalrenderinformation1.setFacing.add(enumfacing1);
 							deque.add(renderglobal$containerlocalrenderinformation1);
@@ -994,7 +994,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 		Lagometer.timerChunkUpdate.start();
 
 		while (iterator.hasNext()) {
-			RenderGlobal.ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation2 = (RenderGlobal.ContainerLocalRenderInformation) iterator.next();
+			ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation2 = (ContainerLocalRenderInformation) iterator.next();
 			RenderChunk renderchunk4 = renderglobal$containerlocalrenderinformation2.renderChunk;
 
 			if (renderchunk4.isNeedsUpdate() || set.contains(renderchunk4)) {
@@ -1127,7 +1127,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 				this.chunksToResortTransparency.clear();
 
 				while (iterator.hasNext()) {
-					RenderGlobal.ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation = (RenderGlobal.ContainerLocalRenderInformation) iterator.next();
+					ContainerLocalRenderInformation renderglobal$containerlocalrenderinformation = (ContainerLocalRenderInformation) iterator.next();
 
 					if (renderglobal$containerlocalrenderinformation.renderChunk.compiledChunk.isLayerStarted(blockLayerIn) && k++ < 15) {
 						this.chunksToResortTransparency.add(renderglobal$containerlocalrenderinformation.renderChunk);
@@ -1146,7 +1146,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 		int j1 = flag ? -1 : 1;
 
 		for (int j = i1; j != i; j += j1) {
-			RenderChunk renderchunk = ((RenderGlobal.ContainerLocalRenderInformation) this.renderInfos.get(j)).renderChunk;
+			RenderChunk renderchunk = ((ContainerLocalRenderInformation) this.renderInfos.get(j)).renderChunk;
 
 			if (!renderchunk.getCompiledChunk().isLayerEmpty(blockLayerIn)) {
 				++l;
@@ -1188,7 +1188,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 				VertexFormatElement.EnumUsage vertexformatelement$enumusage = vertexformatelement.getUsage();
 				int i = vertexformatelement.getIndex();
 
-				switch (RenderGlobal.RenderGlobal$2.field_178037_a[vertexformatelement$enumusage.ordinal()]) {
+				switch (RenderGlobal$2.field_178037_a[vertexformatelement$enumusage.ordinal()]) {
 				case 1:
 					GL11.glDisableClientState(GL11.GL_VERTEX_ARRAY);
 					break;

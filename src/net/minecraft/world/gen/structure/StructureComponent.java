@@ -37,9 +37,9 @@ public abstract class StructureComponent {
 
 	/**
 	 * Writes structure base data (id, boundingbox,
-	 * {@link net.minecraft.world.gen.structure.StructureComponent#coordBaseMode
+	 * {@link StructureComponent#coordBaseMode
 	 * coordBase} and
-	 * {@link net.minecraft.world.gen.structure.StructureComponent#componentType
+	 * {@link StructureComponent#componentType
 	 * componentType}) to new NBTTagCompound and returns it.
 	 */
 	public NBTTagCompound createStructureBaseNBT() {
@@ -59,9 +59,9 @@ public abstract class StructureComponent {
 
 	/**
 	 * Reads and sets structure base data (boundingbox,
-	 * {@link net.minecraft.world.gen.structure.StructureComponent#coordBaseMode
+	 * {@link StructureComponent#coordBaseMode
 	 * coordBase} and
-	 * {@link net.minecraft.world.gen.structure.StructureComponent#componentType
+	 * {@link StructureComponent#componentType
 	 * componentType})
 	 */
 	public void readStructureBaseNBT(World worldIn, NBTTagCompound tagCompound) {
@@ -514,7 +514,7 @@ public abstract class StructureComponent {
 	 * int minZ, int maxX, int maxY, int maxZ, boolean alwaysreplace, Random rand,
 	 * StructurePieceBlockSelector blockselector
 	 */
-	protected void fillWithRandomizedBlocks(World worldIn, StructureBoundingBox boundingboxIn, int minX, int minY, int minZ, int maxX, int maxY, int maxZ, boolean alwaysReplace, Random rand, StructureComponent.BlockSelector blockselector) {
+	protected void fillWithRandomizedBlocks(World worldIn, StructureBoundingBox boundingboxIn, int minX, int minY, int minZ, int maxX, int maxY, int maxZ, boolean alwaysReplace, Random rand, BlockSelector blockselector) {
 		for (int i = minY; i <= maxY; ++i) {
 			for (int j = minX; j <= maxX; ++j) {
 				for (int k = minZ; k <= maxZ; ++k) {

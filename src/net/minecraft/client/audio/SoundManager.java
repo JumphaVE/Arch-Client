@@ -49,7 +49,7 @@ public class SoundManager {
 	private final GameSettings options;
 
 	/** A reference to the sound system. */
-	private SoundManager.SoundSystemStarterThread sndSystem;
+	private SoundSystemStarterThread sndSystem;
 
 	/** Set to true when the SoundManager has been initialised. */
 	private boolean loaded;

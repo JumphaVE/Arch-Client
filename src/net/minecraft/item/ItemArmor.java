@@ -67,9 +67,9 @@ public class ItemArmor extends Item {
 	public final int renderIndex;
 
 	/** The EnumArmorMaterial used for this ItemArmor */
-	private final ItemArmor.ArmorMaterial material;
+	private final ArmorMaterial material;
 
-	public ItemArmor(ItemArmor.ArmorMaterial material, int renderIndex, int armorType) {
+	public ItemArmor(ArmorMaterial material, int renderIndex, int armorType) {
 		this.material = material;
 		this.armorType = armorType;
 		this.renderIndex = renderIndex;
@@ -105,7 +105,7 @@ public class ItemArmor extends Item {
 	/**
 	 * Return the armor material for this armor item.
 	 */
-	public ItemArmor.ArmorMaterial getArmorMaterial() {
+	public ArmorMaterial getArmorMaterial() {
 		return this.material;
 	}
 
@@ -113,14 +113,14 @@ public class ItemArmor extends Item {
 	 * Return whether the specified armor ItemStack has a color.
 	 */
 	public boolean hasColor(ItemStack stack) {
-		return this.material != ItemArmor.ArmorMaterial.LEATHER ? false : (!stack.hasTagCompound() ? false : (!stack.getTagCompound().hasKey("display", 10) ? false : stack.getTagCompound().getCompoundTag("display").hasKey("color", 3)));
+		return this.material != ArmorMaterial.LEATHER ? false : (!stack.hasTagCompound() ? false : (!stack.getTagCompound().hasKey("display", 10) ? false : stack.getTagCompound().getCompoundTag("display").hasKey("color", 3)));
 	}
 
 	/**
 	 * Return the color for the specified armor ItemStack.
 	 */
 	public int getColor(ItemStack stack) {
-		if (this.material != ItemArmor.ArmorMaterial.LEATHER) {
+		if (this.material != ArmorMaterial.LEATHER) {
 			return -1;
 		} else {
 			NBTTagCompound nbttagcompound = stack.getTagCompound();
@@ -141,7 +141,7 @@ public class ItemArmor extends Item {
 	 * Remove the color from the specified armor ItemStack.
 	 */
 	public void removeColor(ItemStack stack) {
-		if (this.material == ItemArmor.ArmorMaterial.LEATHER) {
+		if (this.material == ArmorMaterial.LEATHER) {
 			NBTTagCompound nbttagcompound = stack.getTagCompound();
 
 			if (nbttagcompound != null) {
@@ -158,7 +158,7 @@ public class ItemArmor extends Item {
 	 * Sets the color of the specified armor ItemStack
 	 */
 	public void setColor(ItemStack stack, int color) {
-		if (this.material != ItemArmor.ArmorMaterial.LEATHER) {
+		if (this.material != ArmorMaterial.LEATHER) {
 			throw new UnsupportedOperationException("Can\'t dye non-leather!");
 		} else {
 			NBTTagCompound nbttagcompound = stack.getTagCompound();

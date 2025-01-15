@@ -34,10 +34,10 @@ import net.minecraft.util.ResourceLocation;
 public class GuiStats extends GuiScreen implements IProgressMeter {
 	protected GuiScreen parentScreen;
 	protected String screenTitle = "Select world";
-	private GuiStats.StatsGeneral generalStats;
-	private GuiStats.StatsItem itemStats;
-	private GuiStats.StatsBlock blockStats;
-	private GuiStats.StatsMobsList mobStats;
+	private StatsGeneral generalStats;
+	private StatsItem itemStats;
+	private StatsBlock blockStats;
+	private StatsMobsList mobStats;
 	private StatFileWriter field_146546_t;
 	private GuiSlot displaySlot;
 
@@ -72,13 +72,13 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 	}
 
 	public void func_175366_f() {
-		this.generalStats = new GuiStats.StatsGeneral(this.mc);
+		this.generalStats = new StatsGeneral(this.mc);
 		this.generalStats.registerScrollButtons(1, 1);
-		this.itemStats = new GuiStats.StatsItem(this.mc);
+		this.itemStats = new StatsItem(this.mc);
 		this.itemStats.registerScrollButtons(1, 1);
-		this.blockStats = new GuiStats.StatsBlock(this.mc);
+		this.blockStats = new StatsBlock(this.mc);
 		this.blockStats.registerScrollButtons(1, 1);
-		this.mobStats = new GuiStats.StatsMobsList(this.mc);
+		this.mobStats = new StatsMobsList(this.mc);
 		this.mobStats.registerScrollButtons(1, 1);
 	}
 
@@ -370,7 +370,7 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 		}
 	}
 
-	class StatsBlock extends GuiStats.Stats {
+	class StatsBlock extends Stats {
 		public StatsBlock(Minecraft mcIn) {
 			super(mcIn);
 			this.statsHolder = Lists.<StatCrafting>newArrayList();
@@ -502,7 +502,7 @@ public class GuiStats extends GuiScreen implements IProgressMeter {
 		}
 	}
 
-	class StatsItem extends GuiStats.Stats {
+	class StatsItem extends Stats {
 		public StatsItem(Minecraft mcIn) {
 			super(mcIn);
 			this.statsHolder = Lists.<StatCrafting>newArrayList();

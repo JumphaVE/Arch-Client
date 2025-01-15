@@ -29,7 +29,7 @@ public class ServerData {
 	public String gameVersion = "1.8.8";
 	public boolean field_78841_f;
 	public String playerList;
-	private ServerData.ServerResourceMode resourceMode = ServerData.ServerResourceMode.PROMPT;
+	private ServerResourceMode resourceMode = ServerResourceMode.PROMPT;
 	private String serverIcon;
 	private boolean field_181042_l;
 
@@ -55,20 +55,20 @@ public class ServerData {
 			nbttagcompound.setString("icon", this.serverIcon);
 		}
 
-		if (this.resourceMode == ServerData.ServerResourceMode.ENABLED) {
+		if (this.resourceMode == ServerResourceMode.ENABLED) {
 			nbttagcompound.setBoolean("acceptTextures", true);
-		} else if (this.resourceMode == ServerData.ServerResourceMode.DISABLED) {
+		} else if (this.resourceMode == ServerResourceMode.DISABLED) {
 			nbttagcompound.setBoolean("acceptTextures", false);
 		}
 
 		return nbttagcompound;
 	}
 
-	public ServerData.ServerResourceMode getResourceMode() {
+	public ServerResourceMode getResourceMode() {
 		return this.resourceMode;
 	}
 
-	public void setResourceMode(ServerData.ServerResourceMode mode) {
+	public void setResourceMode(ServerResourceMode mode) {
 		this.resourceMode = mode;
 	}
 
@@ -85,12 +85,12 @@ public class ServerData {
 
 		if (nbtCompound.hasKey("acceptTextures", 1)) {
 			if (nbtCompound.getBoolean("acceptTextures")) {
-				serverdata.setResourceMode(ServerData.ServerResourceMode.ENABLED);
+				serverdata.setResourceMode(ServerResourceMode.ENABLED);
 			} else {
-				serverdata.setResourceMode(ServerData.ServerResourceMode.DISABLED);
+				serverdata.setResourceMode(ServerResourceMode.DISABLED);
 			}
 		} else {
-			serverdata.setResourceMode(ServerData.ServerResourceMode.PROMPT);
+			serverdata.setResourceMode(ServerResourceMode.PROMPT);
 		}
 
 		return serverdata;

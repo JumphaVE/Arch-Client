@@ -143,7 +143,7 @@ public class RegionFile {
 	 * returned stream is closed.
 	 */
 	public DataOutputStream getChunkDataOutputStream(int x, int z) {
-		return this.outOfBounds(x, z) ? null : new DataOutputStream(new DeflaterOutputStream(new RegionFile.ChunkBuffer(x, z)));
+		return this.outOfBounds(x, z) ? null : new DataOutputStream(new DeflaterOutputStream(new ChunkBuffer(x, z)));
 	}
 
 	/**

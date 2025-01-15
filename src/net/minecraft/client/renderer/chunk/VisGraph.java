@@ -103,7 +103,7 @@ public class VisGraph {
 	}
 
 	private int func_178603_a(int p_178603_1_, EnumFacing p_178603_2_) {
-		switch (VisGraph.VisGraph$1.field_178617_a[p_178603_2_.ordinal()]) {
+		switch (VisGraph$1.field_178617_a[p_178603_2_.ordinal()]) {
 		case 1:
 			if ((p_178603_1_ >> 8 & 15) == 0) {
 				return -1;

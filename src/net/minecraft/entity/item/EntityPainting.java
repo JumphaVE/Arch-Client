@@ -15,7 +15,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 public class EntityPainting extends EntityHanging {
-	public EntityPainting.EnumArt art;
+	public EnumArt art;
 
 	public EntityPainting(World worldIn) {
 		super(worldIn);
@@ -23,9 +23,9 @@ public class EntityPainting extends EntityHanging {
 
 	public EntityPainting(World worldIn, BlockPos pos, EnumFacing facing) {
 		super(worldIn, pos);
-		List<EntityPainting.EnumArt> list = Lists.<EntityPainting.EnumArt>newArrayList();
+		List<EnumArt> list = Lists.<EnumArt>newArrayList();
 
-		for (EntityPainting.EnumArt entitypainting$enumart : EntityPainting.EnumArt.values()) {
+		for (EnumArt entitypainting$enumart : EnumArt.values()) {
 			this.art = entitypainting$enumart;
 			this.updateFacingWithBoundingBox(facing);
 
@@ -35,7 +35,7 @@ public class EntityPainting extends EntityHanging {
 		}
 
 		if (!list.isEmpty()) {
-			this.art = (EntityPainting.EnumArt) list.get(this.rand.nextInt(list.size()));
+			this.art = (EnumArt) list.get(this.rand.nextInt(list.size()));
 		}
 
 		this.updateFacingWithBoundingBox(facing);
@@ -44,7 +44,7 @@ public class EntityPainting extends EntityHanging {
 	public EntityPainting(World worldIn, BlockPos pos, EnumFacing facing, String title) {
 		this(worldIn, pos, facing);
 
-		for (EntityPainting.EnumArt entitypainting$enumart : EntityPainting.EnumArt.values()) {
+		for (EnumArt entitypainting$enumart : EnumArt.values()) {
 			if (entitypainting$enumart.title.equals(title)) {
 				this.art = entitypainting$enumart;
 				break;
@@ -68,14 +68,14 @@ public class EntityPainting extends EntityHanging {
 	public void readEntityFromNBT(NBTTagCompound tagCompund) {
 		String s = tagCompund.getString("Motive");
 
-		for (EntityPainting.EnumArt entitypainting$enumart : EntityPainting.EnumArt.values()) {
+		for (EnumArt entitypainting$enumart : EnumArt.values()) {
 			if (entitypainting$enumart.title.equals(s)) {
 				this.art = entitypainting$enumart;
 			}
 		}
 
 		if (this.art == null) {
-			this.art = EntityPainting.EnumArt.KEBAB;
+			this.art = EnumArt.KEBAB;
 		}
 
 		super.readEntityFromNBT(tagCompund);

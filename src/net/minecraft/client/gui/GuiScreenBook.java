@@ -59,8 +59,8 @@ public class GuiScreenBook extends GuiScreen {
 	private String bookTitle = "";
 	private List<IChatComponent> field_175386_A;
 	private int field_175387_B = -1;
-	private GuiScreenBook.NextPageButton buttonNextPage;
-	private GuiScreenBook.NextPageButton buttonPreviousPage;
+	private NextPageButton buttonNextPage;
+	private NextPageButton buttonPreviousPage;
 	private GuiButton buttonDone;
 
 	/** The GuiButton to sign this book. */
@@ -122,8 +122,8 @@ public class GuiScreenBook extends GuiScreen {
 
 		int i = (this.width - this.bookImageWidth) / 2;
 		int j = 2;
-		this.buttonList.add(this.buttonNextPage = new GuiScreenBook.NextPageButton(1, i + 120, j + 154, true));
-		this.buttonList.add(this.buttonPreviousPage = new GuiScreenBook.NextPageButton(2, i + 38, j + 154, false));
+		this.buttonList.add(this.buttonNextPage = new NextPageButton(1, i + 120, j + 154, true));
+		this.buttonList.add(this.buttonPreviousPage = new NextPageButton(2, i + 38, j + 154, false));
 		this.updateButtons();
 	}
 

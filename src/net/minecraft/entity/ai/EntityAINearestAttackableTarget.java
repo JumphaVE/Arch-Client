@@ -18,7 +18,7 @@ public class EntityAINearestAttackableTarget<T extends EntityLivingBase> extends
 	private final int targetChance;
 
 	/** Instance of EntityAINearestAttackableTargetSorter. */
-	protected final EntityAINearestAttackableTarget.Sorter theNearestAttackableTargetSorter;
+	protected final Sorter theNearestAttackableTargetSorter;
 	protected Predicate<? super T> targetEntitySelector;
 	protected EntityLivingBase targetEntity;
 
@@ -34,7 +34,7 @@ public class EntityAINearestAttackableTarget<T extends EntityLivingBase> extends
 		super(creature, checkSight, onlyNearby);
 		this.targetClass = classTarget;
 		this.targetChance = chance;
-		this.theNearestAttackableTargetSorter = new EntityAINearestAttackableTarget.Sorter(creature);
+		this.theNearestAttackableTargetSorter = new Sorter(creature);
 		this.setMutexBits(1);
 		this.targetEntitySelector = new Predicate<T>() {
 			public boolean apply(T p_apply_1_) {

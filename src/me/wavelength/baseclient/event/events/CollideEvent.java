@@ -13,7 +13,7 @@ public class CollideEvent extends CancellableEvent {
 	private Block block;
 
 	/**
-	 * This event is fired by the Block class: {@link net.minecraft.block.Block#addCollisionBoxesToList}
+	 * This event is fired by the Block class: {@link Block#addCollisionBoxesToList}
 	 */
 	public CollideEvent(Entity entity, AxisAlignedBB axisAlignedBB, Block block) {
 		this.entity = entity;

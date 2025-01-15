@@ -75,7 +75,7 @@ public class BiomeGenMutated extends BiomeGenBase {
 		return this.baseBiome.isEqualTo(biome);
 	}
 
-	public BiomeGenBase.TempCategory getTempCategory() {
+	public TempCategory getTempCategory() {
 		return this.baseBiome.getTempCategory();
 	}
 }

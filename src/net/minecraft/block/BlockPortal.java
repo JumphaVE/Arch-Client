@@ -82,13 +82,13 @@ public class BlockPortal extends BlockBreakable {
 	}
 
 	public boolean func_176548_d(World worldIn, BlockPos p_176548_2_) {
-		BlockPortal.Size blockportal$size = new BlockPortal.Size(worldIn, p_176548_2_, EnumFacing.Axis.X);
+		Size blockportal$size = new Size(worldIn, p_176548_2_, EnumFacing.Axis.X);
 
 		if (blockportal$size.func_150860_b() && blockportal$size.field_150864_e == 0) {
 			blockportal$size.func_150859_c();
 			return true;
 		} else {
-			BlockPortal.Size blockportal$size1 = new BlockPortal.Size(worldIn, p_176548_2_, EnumFacing.Axis.Z);
+			Size blockportal$size1 = new Size(worldIn, p_176548_2_, EnumFacing.Axis.Z);
 
 			if (blockportal$size1.func_150860_b() && blockportal$size1.field_150864_e == 0) {
 				blockportal$size1.func_150859_c();
@@ -106,13 +106,13 @@ public class BlockPortal extends BlockBreakable {
 		EnumFacing.Axis enumfacing$axis = (EnumFacing.Axis) state.getValue(AXIS);
 
 		if (enumfacing$axis == EnumFacing.Axis.X) {
-			BlockPortal.Size blockportal$size = new BlockPortal.Size(worldIn, pos, EnumFacing.Axis.X);
+			Size blockportal$size = new Size(worldIn, pos, EnumFacing.Axis.X);
 
 			if (!blockportal$size.func_150860_b() || blockportal$size.field_150864_e < blockportal$size.field_150868_h * blockportal$size.field_150862_g) {
 				worldIn.setBlockState(pos, Blocks.air.getDefaultState());
 			}
 		} else if (enumfacing$axis == EnumFacing.Axis.Z) {
-			BlockPortal.Size blockportal$size1 = new BlockPortal.Size(worldIn, pos, EnumFacing.Axis.Z);
+			Size blockportal$size1 = new Size(worldIn, pos, EnumFacing.Axis.Z);
 
 			if (!blockportal$size1.func_150860_b() || blockportal$size1.field_150864_e < blockportal$size1.field_150868_h * blockportal$size1.field_150862_g) {
 				worldIn.setBlockState(pos, Blocks.air.getDefaultState());
@@ -219,12 +219,12 @@ public class BlockPortal extends BlockBreakable {
 
 	public BlockPattern.PatternHelper func_181089_f(World p_181089_1_, BlockPos p_181089_2_) {
 		EnumFacing.Axis enumfacing$axis = EnumFacing.Axis.Z;
-		BlockPortal.Size blockportal$size = new BlockPortal.Size(p_181089_1_, p_181089_2_, EnumFacing.Axis.X);
+		Size blockportal$size = new Size(p_181089_1_, p_181089_2_, EnumFacing.Axis.X);
 		LoadingCache<BlockPos, BlockWorldState> loadingcache = BlockPattern.func_181627_a(p_181089_1_, true);
 
 		if (!blockportal$size.func_150860_b()) {
 			enumfacing$axis = EnumFacing.Axis.X;
-			blockportal$size = new BlockPortal.Size(p_181089_1_, p_181089_2_, EnumFacing.Axis.Z);
+			blockportal$size = new Size(p_181089_1_, p_181089_2_, EnumFacing.Axis.Z);
 		}
 
 		if (!blockportal$size.func_150860_b()) {

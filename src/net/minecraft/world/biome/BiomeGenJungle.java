@@ -42,10 +42,10 @@ public class BiomeGenJungle extends BiomeGenBase {
 		this.theBiomeDecorator.flowersPerChunk = 4;
 
 		if (!p_i45379_2_) {
-			this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(EntityOcelot.class, 2, 1, 1));
+			this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
 		}
 
-		this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 10, 4, 4));
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 10, 4, 4));
 	}
 
 	public WorldGenAbstractTree genBigTreeChance(Random rand) {

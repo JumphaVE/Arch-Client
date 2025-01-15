@@ -36,7 +36,7 @@ public class Time {
 	}
 
 	public static Timer delayExecute(Runnable runnable, int milliseconds) {
-		Timer t = new java.util.Timer();
+		Timer t = new Timer();
 		t.schedule(new java.util.TimerTask() {
 			@Override
 			public void run() {

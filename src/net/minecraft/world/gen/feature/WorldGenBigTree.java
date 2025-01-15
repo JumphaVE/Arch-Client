@@ -33,7 +33,7 @@ public class WorldGenBigTree extends WorldGenAbstractTree {
 	 * from the base leaf node.
 	 */
 	int leafDistanceLimit = 4;
-	List<WorldGenBigTree.FoliageCoordinates> field_175948_j;
+	List<FoliageCoordinates> field_175948_j;
 
 	public WorldGenBigTree(boolean p_i2008_1_) {
 		super(p_i2008_1_);
@@ -58,8 +58,8 @@ public class WorldGenBigTree extends WorldGenAbstractTree {
 
 		int j = this.basePos.getY() + this.height;
 		int k = this.heightLimit - this.leafDistanceLimit;
-		this.field_175948_j = Lists.<WorldGenBigTree.FoliageCoordinates>newArrayList();
-		this.field_175948_j.add(new WorldGenBigTree.FoliageCoordinates(this.basePos.up(k), j));
+		this.field_175948_j = Lists.<FoliageCoordinates>newArrayList();
+		this.field_175948_j.add(new FoliageCoordinates(this.basePos.up(k), j));
 
 		for (; k >= 0; --k) {
 			float f = this.layerSize(k);
@@ -81,7 +81,7 @@ public class WorldGenBigTree extends WorldGenAbstractTree {
 						BlockPos blockpos2 = new BlockPos(this.basePos.getX(), k1, this.basePos.getZ());
 
 						if (this.checkBlockLine(blockpos2, blockpos) == -1) {
-							this.field_175948_j.add(new WorldGenBigTree.FoliageCoordinates(blockpos, blockpos2.getY()));
+							this.field_175948_j.add(new FoliageCoordinates(blockpos, blockpos2.getY()));
 						}
 					}
 				}
@@ -185,7 +185,7 @@ public class WorldGenBigTree extends WorldGenAbstractTree {
 	 * Generates the leaf portion of the tree as specified by the leafNodes list.
 	 */
 	void generateLeaves() {
-		for (WorldGenBigTree.FoliageCoordinates worldgenbigtree$foliagecoordinates : this.field_175948_j) {
+		for (FoliageCoordinates worldgenbigtree$foliagecoordinates : this.field_175948_j) {
 			this.generateLeafNode(worldgenbigtree$foliagecoordinates);
 		}
 	}
@@ -220,7 +220,7 @@ public class WorldGenBigTree extends WorldGenAbstractTree {
 	 * nodes that would otherwise degrade.
 	 */
 	void generateLeafNodeBases() {
-		for (WorldGenBigTree.FoliageCoordinates worldgenbigtree$foliagecoordinates : this.field_175948_j) {
+		for (FoliageCoordinates worldgenbigtree$foliagecoordinates : this.field_175948_j) {
 			int i = worldgenbigtree$foliagecoordinates.func_177999_q();
 			BlockPos blockpos = new BlockPos(this.basePos.getX(), i, this.basePos.getZ());
 

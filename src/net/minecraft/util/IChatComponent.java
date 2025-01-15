@@ -228,7 +228,7 @@ public interface IChatComponent extends Iterable<IChatComponent> {
 
 		static {
 			GsonBuilder gsonbuilder = new GsonBuilder();
-			gsonbuilder.registerTypeHierarchyAdapter(IChatComponent.class, new IChatComponent.Serializer());
+			gsonbuilder.registerTypeHierarchyAdapter(IChatComponent.class, new Serializer());
 			gsonbuilder.registerTypeHierarchyAdapter(ChatStyle.class, new ChatStyle.Serializer());
 			gsonbuilder.registerTypeAdapterFactory(new EnumTypeAdapterFactory());
 			GSON = gsonbuilder.create();

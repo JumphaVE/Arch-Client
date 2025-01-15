@@ -104,17 +104,17 @@ public class SimpleBakedModel implements IBakedModel {
 			this.builderCameraTransforms = p_i46076_3_;
 		}
 
-		public SimpleBakedModel.Builder addFaceQuad(EnumFacing p_177650_1_, BakedQuad p_177650_2_) {
+		public Builder addFaceQuad(EnumFacing p_177650_1_, BakedQuad p_177650_2_) {
 			((List) this.builderFaceQuads.get(p_177650_1_.ordinal())).add(p_177650_2_);
 			return this;
 		}
 
-		public SimpleBakedModel.Builder addGeneralQuad(BakedQuad p_177648_1_) {
+		public Builder addGeneralQuad(BakedQuad p_177648_1_) {
 			this.builderGeneralQuads.add(p_177648_1_);
 			return this;
 		}
 
-		public SimpleBakedModel.Builder setTexture(TextureAtlasSprite p_177646_1_) {
+		public Builder setTexture(TextureAtlasSprite p_177646_1_) {
 			this.builderTexture = p_177646_1_;
 			return this;
 		}

@@ -14,7 +14,7 @@ import tv.twitch.broadcast.IngestServer;
 public class GuiIngestServers extends GuiScreen {
 	private final GuiScreen field_152309_a;
 	private String field_152310_f;
-	private GuiIngestServers.ServerList field_152311_g;
+	private ServerList field_152311_g;
 
 	public GuiIngestServers(GuiScreen p_i46312_1_) {
 		this.field_152309_a = p_i46312_1_;
@@ -27,7 +27,7 @@ public class GuiIngestServers extends GuiScreen {
 	 */
 	public void initGui() {
 		this.field_152310_f = I18n.format("options.stream.ingest.title", new Object[0]);
-		this.field_152311_g = new GuiIngestServers.ServerList(this.mc);
+		this.field_152311_g = new ServerList(this.mc);
 
 		if (!this.mc.getTwitchStream().func_152908_z()) {
 			this.mc.getTwitchStream().func_152909_x();

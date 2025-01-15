@@ -32,7 +32,7 @@ public class WorldVertexBufferUploader {
 					int k = vertexformatelement.getIndex();
 					bytebuffer.position(vertexformat.func_181720_d(j));
 
-					switch (WorldVertexBufferUploader.WorldVertexBufferUploader$1.field_178958_a[vertexformatelement$enumusage.ordinal()]) {
+					switch (WorldVertexBufferUploader$1.field_178958_a[vertexformatelement$enumusage.ordinal()]) {
 					case 1:
 						GL11.glVertexPointer(vertexformatelement.getElementCount(), l, i, bytebuffer);
 						GL11.glEnableClientState(GL11.GL_VERTEX_ARRAY);
@@ -74,7 +74,7 @@ public class WorldVertexBufferUploader {
 				} else {
 					int j1 = vertexformatelement1.getIndex();
 
-					switch (WorldVertexBufferUploader.WorldVertexBufferUploader$1.field_178958_a[vertexformatelement$enumusage1.ordinal()]) {
+					switch (WorldVertexBufferUploader$1.field_178958_a[vertexformatelement$enumusage1.ordinal()]) {
 					case 1:
 						GL11.glDisableClientState(GL11.GL_VERTEX_ARRAY);
 						break;

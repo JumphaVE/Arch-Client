@@ -2,7 +2,7 @@ package net.minecraft.util;
 
 public class LongHashMap {
 	/** the array of all elements in the hash */
-	private transient LongHashMap.Entry[] hashArray = new LongHashMap.Entry[4096];
+	private transient Entry[] hashArray = new Entry[4096];
 
 	/** the number of elements in the hash array */
 	private transient int numHashElements;
@@ -59,7 +59,7 @@ public class LongHashMap {
 	public Object getValueByKey(long p_76164_1_) {
 		int i = getHashedKey(p_76164_1_);
 
-		for (LongHashMap.Entry longhashmap$entry = this.hashArray[getHashIndex(i, this.mask)]; longhashmap$entry != null; longhashmap$entry = longhashmap$entry.nextEntry) {
+		for (Entry longhashmap$entry = this.hashArray[getHashIndex(i, this.mask)]; longhashmap$entry != null; longhashmap$entry = longhashmap$entry.nextEntry) {
 			if (longhashmap$entry.key == p_76164_1_) {
 				return longhashmap$entry.value;
 			}
@@ -72,10 +72,10 @@ public class LongHashMap {
 		return this.getEntry(p_76161_1_) != null;
 	}
 
-	final LongHashMap.Entry getEntry(long p_76160_1_) {
+	final Entry getEntry(long p_76160_1_) {
 		int i = getHashedKey(p_76160_1_);
 
-		for (LongHashMap.Entry longhashmap$entry = this.hashArray[getHashIndex(i, this.mask)]; longhashmap$entry != null; longhashmap$entry = longhashmap$entry.nextEntry) {
+		for (Entry longhashmap$entry = this.hashArray[getHashIndex(i, this.mask)]; longhashmap$entry != null; longhashmap$entry = longhashmap$entry.nextEntry) {
 			if (longhashmap$entry.key == p_76160_1_) {
 				return longhashmap$entry;
 			}
@@ -91,7 +91,7 @@ public class LongHashMap {
 		int i = getHashedKey(p_76163_1_);
 		int j = getHashIndex(i, this.mask);
 
-		for (LongHashMap.Entry longhashmap$entry = this.hashArray[j]; longhashmap$entry != null; longhashmap$entry = longhashmap$entry.nextEntry) {
+		for (Entry longhashmap$entry = this.hashArray[j]; longhashmap$entry != null; longhashmap$entry = longhashmap$entry.nextEntry) {
 			if (longhashmap$entry.key == p_76163_1_) {
 				longhashmap$entry.value = p_76163_3_;
 				return;
@@ -106,13 +106,13 @@ public class LongHashMap {
 	 * resizes the table
 	 */
 	private void resizeTable(int p_76153_1_) {
-		LongHashMap.Entry[] alonghashmap$entry = this.hashArray;
+		Entry[] alonghashmap$entry = this.hashArray;
 		int i = alonghashmap$entry.length;
 
 		if (i == 1073741824) {
 			this.capacity = Integer.MAX_VALUE;
 		} else {
-			LongHashMap.Entry[] alonghashmap$entry1 = new LongHashMap.Entry[p_76153_1_];
+			Entry[] alonghashmap$entry1 = new Entry[p_76153_1_];
 			this.copyHashTableTo(alonghashmap$entry1);
 			this.hashArray = alonghashmap$entry1;
 			this.mask = this.hashArray.length - 1;
@@ -125,18 +125,18 @@ public class LongHashMap {
 	/**
 	 * copies the hash table to the specified array
 	 */
-	private void copyHashTableTo(LongHashMap.Entry[] p_76154_1_) {
-		LongHashMap.Entry[] alonghashmap$entry = this.hashArray;
+	private void copyHashTableTo(Entry[] p_76154_1_) {
+		Entry[] alonghashmap$entry = this.hashArray;
 		int i = p_76154_1_.length;
 
 		for (int j = 0; j < alonghashmap$entry.length; ++j) {
-			LongHashMap.Entry longhashmap$entry = alonghashmap$entry[j];
+			Entry longhashmap$entry = alonghashmap$entry[j];
 
 			if (longhashmap$entry != null) {
 				alonghashmap$entry[j] = null;
 
 				while (true) {
-					LongHashMap.Entry longhashmap$entry1 = longhashmap$entry.nextEntry;
+					Entry longhashmap$entry1 = longhashmap$entry.nextEntry;
 					int k = getHashIndex(longhashmap$entry.hash, i - 1);
 					longhashmap$entry.nextEntry = p_76154_1_[k];
 					p_76154_1_[k] = longhashmap$entry;
@@ -154,19 +154,19 @@ public class LongHashMap {
 	 * calls the removeKey method and returns removed object
 	 */
 	public Object remove(long p_76159_1_) {
-		LongHashMap.Entry longhashmap$entry = this.removeKey(p_76159_1_);
+		Entry longhashmap$entry = this.removeKey(p_76159_1_);
 		return longhashmap$entry == null ? null : longhashmap$entry.value;
 	}
 
 	/**
 	 * removes the key from the hash linked list
 	 */
-	final LongHashMap.Entry removeKey(long p_76152_1_) {
+	final Entry removeKey(long p_76152_1_) {
 		int i = getHashedKey(p_76152_1_);
 		int j = getHashIndex(i, this.mask);
-		LongHashMap.Entry longhashmap$entry = this.hashArray[j];
-		LongHashMap.Entry longhashmap$entry1;
-		LongHashMap.Entry longhashmap$entry2;
+		Entry longhashmap$entry = this.hashArray[j];
+		Entry longhashmap$entry1;
+		Entry longhashmap$entry2;
 
 		for (longhashmap$entry1 = longhashmap$entry; longhashmap$entry1 != null; longhashmap$entry1 = longhashmap$entry2) {
 			longhashmap$entry2 = longhashmap$entry1.nextEntry;
@@ -194,8 +194,8 @@ public class LongHashMap {
 	 * creates the key in the hash table
 	 */
 	private void createKey(int p_76156_1_, long p_76156_2_, Object p_76156_4_, int p_76156_5_) {
-		LongHashMap.Entry longhashmap$entry = this.hashArray[p_76156_5_];
-		this.hashArray[p_76156_5_] = new LongHashMap.Entry(p_76156_1_, p_76156_2_, p_76156_4_, longhashmap$entry);
+		Entry longhashmap$entry = this.hashArray[p_76156_5_];
+		this.hashArray[p_76156_5_] = new Entry(p_76156_1_, p_76156_2_, p_76156_4_, longhashmap$entry);
 
 		if (this.numHashElements++ >= this.capacity) {
 			this.resizeTable(2 * this.hashArray.length);
@@ -217,11 +217,11 @@ public class LongHashMap {
 	static class Entry {
 		final long key;
 		Object value;
-		LongHashMap.Entry nextEntry;
+		Entry nextEntry;
 		final int hash;
 		
 
-		Entry(int p_i1553_1_, long p_i1553_2_, Object p_i1553_4_, LongHashMap.Entry p_i1553_5_) {
+		Entry(int p_i1553_1_, long p_i1553_2_, Object p_i1553_4_, Entry p_i1553_5_) {
 			this.value = p_i1553_4_;
 			this.nextEntry = p_i1553_5_;
 			this.key = p_i1553_2_;
@@ -237,10 +237,10 @@ public class LongHashMap {
 		}
 
 		public final boolean equals(Object p_equals_1_) {
-			if (!(p_equals_1_ instanceof LongHashMap.Entry)) {
+			if (!(p_equals_1_ instanceof Entry)) {
 				return false;
 			} else {
-				LongHashMap.Entry longhashmap$entry = (LongHashMap.Entry) p_equals_1_;
+				Entry longhashmap$entry = (Entry) p_equals_1_;
 				Long olong = Long.valueOf(this.getKey());
 				Long olong1 = Long.valueOf(longhashmap$entry.getKey());
 

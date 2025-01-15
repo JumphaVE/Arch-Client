@@ -72,7 +72,7 @@ public class MapGenVillage extends MapGenStructure {
 	}
 
 	protected StructureStart getStructureStart(int chunkX, int chunkZ) {
-		return new MapGenVillage.Start(this.worldObj, this.rand, chunkX, chunkZ, this.terrainType);
+		return new Start(this.worldObj, this.rand, chunkX, chunkZ, this.terrainType);
 	}
 
 	public static class Start extends StructureStart {

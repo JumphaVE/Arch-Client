@@ -6,7 +6,7 @@ public class MovingObjectPosition {
 	private BlockPos blockPos;
 
 	/** What type of ray trace hit was this? 0 = block, 1 = entity */
-	public MovingObjectPosition.MovingObjectType typeOfHit;
+	public MovingObjectType typeOfHit;
 	public EnumFacing sideHit;
 
 	/** The vector position of the hit */
@@ -16,18 +16,18 @@ public class MovingObjectPosition {
 	public Entity entityHit;
 
 	public MovingObjectPosition(Vec3 hitVecIn, EnumFacing facing, BlockPos blockPosIn) {
-		this(MovingObjectPosition.MovingObjectType.BLOCK, hitVecIn, facing, blockPosIn);
+		this(MovingObjectType.BLOCK, hitVecIn, facing, blockPosIn);
 	}
 
 	public MovingObjectPosition(Vec3 p_i45552_1_, EnumFacing facing) {
-		this(MovingObjectPosition.MovingObjectType.BLOCK, p_i45552_1_, facing, BlockPos.ORIGIN);
+		this(MovingObjectType.BLOCK, p_i45552_1_, facing, BlockPos.ORIGIN);
 	}
 
 	public MovingObjectPosition(Entity p_i2304_1_) {
 		this(p_i2304_1_, new Vec3(p_i2304_1_.posX, p_i2304_1_.posY, p_i2304_1_.posZ));
 	}
 
-	public MovingObjectPosition(MovingObjectPosition.MovingObjectType typeOfHitIn, Vec3 hitVecIn, EnumFacing sideHitIn, BlockPos blockPosIn) {
+	public MovingObjectPosition(MovingObjectType typeOfHitIn, Vec3 hitVecIn, EnumFacing sideHitIn, BlockPos blockPosIn) {
 		this.typeOfHit = typeOfHitIn;
 		this.blockPos = blockPosIn;
 		this.sideHit = sideHitIn;
@@ -35,7 +35,7 @@ public class MovingObjectPosition {
 	}
 
 	public MovingObjectPosition(Entity entityHitIn, Vec3 hitVecIn) {
-		this.typeOfHit = MovingObjectPosition.MovingObjectType.ENTITY;
+		this.typeOfHit = MovingObjectType.ENTITY;
 		this.entityHit = entityHitIn;
 		this.hitVec = hitVecIn;
 	}

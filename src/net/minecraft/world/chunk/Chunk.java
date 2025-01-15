@@ -626,7 +626,7 @@ public class Chunk {
 				}
 
 				if (block1 instanceof ITileEntityProvider) {
-					TileEntity tileentity = this.getTileEntity(pos, Chunk.EnumCreateEntityType.CHECK);
+					TileEntity tileentity = this.getTileEntity(pos, EnumCreateEntityType.CHECK);
 
 					if (tileentity != null) {
 						tileentity.updateContainingBlockInfo();
@@ -638,7 +638,7 @@ public class Chunk {
 				}
 
 				if (block instanceof ITileEntityProvider) {
-					TileEntity tileentity1 = this.getTileEntity(pos, Chunk.EnumCreateEntityType.CHECK);
+					TileEntity tileentity1 = this.getTileEntity(pos, EnumCreateEntityType.CHECK);
 
 					if (tileentity1 == null) {
 						tileentity1 = ((ITileEntityProvider) block).createNewTileEntity(this.worldObj, block.getMetaFromState(state));
@@ -771,14 +771,14 @@ public class Chunk {
 		return !block.hasTileEntity() ? null : ((ITileEntityProvider) block).createNewTileEntity(this.worldObj, this.getBlockMetadata(pos));
 	}
 
-	public TileEntity getTileEntity(BlockPos pos, Chunk.EnumCreateEntityType p_177424_2_) {
+	public TileEntity getTileEntity(BlockPos pos, EnumCreateEntityType p_177424_2_) {
 		TileEntity tileentity = (TileEntity) this.chunkTileEntityMap.get(pos);
 
 		if (tileentity == null) {
-			if (p_177424_2_ == Chunk.EnumCreateEntityType.IMMEDIATE) {
+			if (p_177424_2_ == EnumCreateEntityType.IMMEDIATE) {
 				tileentity = this.createNewTileEntity(pos);
 				this.worldObj.setTileEntity(pos, tileentity);
-			} else if (p_177424_2_ == Chunk.EnumCreateEntityType.QUEUED) {
+			} else if (p_177424_2_ == EnumCreateEntityType.QUEUED) {
 				this.tileEntityPosQueue.add(pos);
 			}
 		} else if (tileentity.isInvalid()) {
@@ -1023,7 +1023,7 @@ public class Chunk {
 		while (!this.tileEntityPosQueue.isEmpty()) {
 			BlockPos blockpos = (BlockPos) this.tileEntityPosQueue.poll();
 
-			if (this.getTileEntity(blockpos, Chunk.EnumCreateEntityType.CHECK) == null && this.getBlock(blockpos).hasTileEntity()) {
+			if (this.getTileEntity(blockpos, EnumCreateEntityType.CHECK) == null && this.getBlock(blockpos).hasTileEntity()) {
 				TileEntity tileentity = this.createNewTileEntity(blockpos);
 				this.worldObj.setTileEntity(blockpos, tileentity);
 				this.worldObj.markBlockRangeForRenderUpdate(blockpos, blockpos);

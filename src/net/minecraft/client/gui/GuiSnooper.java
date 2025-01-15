@@ -18,7 +18,7 @@ public class GuiSnooper extends GuiScreen {
 	private final java.util.List<String> field_146609_h = Lists.<String>newArrayList();
 	private String field_146610_i;
 	private String[] field_146607_r;
-	private GuiSnooper.List field_146606_s;
+	private List field_146606_s;
 	private GuiButton field_146605_t;
 
 	public GuiSnooper(GuiScreen p_i1061_1_, GameSettings p_i1061_2_) {
@@ -59,7 +59,7 @@ public class GuiSnooper extends GuiScreen {
 			}
 		}
 
-		this.field_146606_s = new GuiSnooper.List();
+		this.field_146606_s = new List();
 	}
 
 	/**

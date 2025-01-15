@@ -73,7 +73,7 @@ public class TwitchStream implements BroadcastController.BroadcastListener, Chat
 	private boolean loggedIn;
 	private boolean field_152962_n;
 	private boolean field_152963_o;
-	private IStream.AuthFailureReason authFailureReason = IStream.AuthFailureReason.ERROR;
+	private AuthFailureReason authFailureReason = AuthFailureReason.ERROR;
 	private static boolean field_152965_q;
 
 	public TwitchStream(Minecraft mcIn, final Property streamProperty) {
@@ -111,11 +111,11 @@ public class TwitchStream implements BroadcastController.BroadcastListener, Chat
 							TwitchStream.this.broadcastController.func_152817_A();
 							TwitchStream.this.chatController.func_175984_n();
 						} else {
-							TwitchStream.this.authFailureReason = IStream.AuthFailureReason.INVALID_TOKEN;
+							TwitchStream.this.authFailureReason = AuthFailureReason.INVALID_TOKEN;
 							TwitchStream.LOGGER.error(TwitchStream.STREAM_MARKER, "Given twitch access token is invalid");
 						}
 					} catch (IOException ioexception) {
-						TwitchStream.this.authFailureReason = IStream.AuthFailureReason.ERROR;
+						TwitchStream.this.authFailureReason = AuthFailureReason.ERROR;
 						TwitchStream.LOGGER.error(TwitchStream.STREAM_MARKER, (String) "Could not authenticate with twitch", (Throwable) ioexception);
 					}
 				}
@@ -607,7 +607,7 @@ public class TwitchStream implements BroadcastController.BroadcastListener, Chat
 		return this.field_152962_n || this.mc.gameSettings.streamMicVolume <= 0.0F || flag != this.field_152963_o;
 	}
 
-	public IStream.AuthFailureReason func_152918_H() {
+	public AuthFailureReason func_152918_H() {
 		return this.authFailureReason;
 	}
 

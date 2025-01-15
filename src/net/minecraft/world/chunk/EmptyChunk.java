@@ -90,7 +90,7 @@ public class EmptyChunk extends Chunk {
 		return false;
 	}
 
-	public TileEntity getTileEntity(BlockPos pos, Chunk.EnumCreateEntityType p_177424_2_) {
+	public TileEntity getTileEntity(BlockPos pos, EnumCreateEntityType p_177424_2_) {
 		return null;
 	}
 

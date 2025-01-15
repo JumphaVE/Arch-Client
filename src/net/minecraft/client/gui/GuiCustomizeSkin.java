@@ -26,7 +26,7 @@ public class GuiCustomizeSkin extends GuiScreen {
 		this.title = I18n.format("options.skinCustomisation.title", new Object[0]);
 
 		for (EnumPlayerModelParts enumplayermodelparts : EnumPlayerModelParts.values()) {
-			this.buttonList.add(new GuiCustomizeSkin.ButtonPart(enumplayermodelparts.getPartId(), this.width / 2 - 155 + i % 2 * 160, this.height / 6 + 24 * (i >> 1), 150, 20, enumplayermodelparts));
+			this.buttonList.add(new ButtonPart(enumplayermodelparts.getPartId(), this.width / 2 - 155 + i % 2 * 160, this.height / 6 + 24 * (i >> 1), 150, 20, enumplayermodelparts));
 			++i;
 		}
 
@@ -46,8 +46,8 @@ public class GuiCustomizeSkin extends GuiScreen {
 			if (button.id == 200) {
 				this.mc.gameSettings.saveOptions();
 				this.mc.displayGuiScreen(this.parentScreen);
-			} else if (button instanceof GuiCustomizeSkin.ButtonPart) {
-				EnumPlayerModelParts enumplayermodelparts = ((GuiCustomizeSkin.ButtonPart) button).playerModelParts;
+			} else if (button instanceof ButtonPart) {
+				EnumPlayerModelParts enumplayermodelparts = ((ButtonPart) button).playerModelParts;
 				this.mc.gameSettings.switchModelPartEnabled(enumplayermodelparts);
 				button.displayString = this.func_175358_a(enumplayermodelparts);
 			}

@@ -1276,22 +1276,22 @@ public abstract class EntityPlayer extends EntityLivingBase {
 		return this.gameProfile;
 	}
 
-	public EntityPlayer.EnumStatus trySleep(BlockPos bedLocation) {
+	public EnumStatus trySleep(BlockPos bedLocation) {
 		if (!this.worldObj.isRemote) {
 			if (this.isPlayerSleeping() || !this.isEntityAlive()) {
-				return EntityPlayer.EnumStatus.OTHER_PROBLEM;
+				return EnumStatus.OTHER_PROBLEM;
 			}
 
 			if (!this.worldObj.provider.isSurfaceWorld()) {
-				return EntityPlayer.EnumStatus.NOT_POSSIBLE_HERE;
+				return EnumStatus.NOT_POSSIBLE_HERE;
 			}
 
 			if (this.worldObj.isDaytime()) {
-				return EntityPlayer.EnumStatus.NOT_POSSIBLE_NOW;
+				return EnumStatus.NOT_POSSIBLE_NOW;
 			}
 
 			if (Math.abs(this.posX - (double) bedLocation.getX()) > 3.0D || Math.abs(this.posY - (double) bedLocation.getY()) > 2.0D || Math.abs(this.posZ - (double) bedLocation.getZ()) > 3.0D) {
-				return EntityPlayer.EnumStatus.TOO_FAR_AWAY;
+				return EnumStatus.TOO_FAR_AWAY;
 			}
 
 			double d0 = 8.0D;
@@ -1299,7 +1299,7 @@ public abstract class EntityPlayer extends EntityLivingBase {
 			List<EntityMob> list = this.worldObj.<EntityMob>getEntitiesWithinAABB(EntityMob.class, new AxisAlignedBB((double) bedLocation.getX() - d0, (double) bedLocation.getY() - d1, (double) bedLocation.getZ() - d0, (double) bedLocation.getX() + d0, (double) bedLocation.getY() + d1, (double) bedLocation.getZ() + d0));
 
 			if (!list.isEmpty()) {
-				return EntityPlayer.EnumStatus.NOT_SAFE;
+				return EnumStatus.NOT_SAFE;
 			}
 		}
 
@@ -1346,7 +1346,7 @@ public abstract class EntityPlayer extends EntityLivingBase {
 			this.worldObj.updateAllPlayersSleepingFlag();
 		}
 
-		return EntityPlayer.EnumStatus.OK;
+		return EnumStatus.OK;
 	}
 
 	private void func_175139_a(EnumFacing p_175139_1_) {
@@ -2080,7 +2080,7 @@ public abstract class EntityPlayer extends EntityLivingBase {
 	public static enum EnumChatVisibility {
 		FULL(0, "options.chat.visibility.full"), SYSTEM(1, "options.chat.visibility.system"), HIDDEN(2, "options.chat.visibility.hidden");
 
-		private static final EntityPlayer.EnumChatVisibility[] ID_LOOKUP = new EntityPlayer.EnumChatVisibility[values().length];
+		private static final EnumChatVisibility[] ID_LOOKUP = new EnumChatVisibility[values().length];
 		private final int chatVisibility;
 		private final String resourceKey;
 
@@ -2093,7 +2093,7 @@ public abstract class EntityPlayer extends EntityLivingBase {
 			return this.chatVisibility;
 		}
 
-		public static EntityPlayer.EnumChatVisibility getEnumChatVisibility(int id) {
+		public static EnumChatVisibility getEnumChatVisibility(int id) {
 			return ID_LOOKUP[id % ID_LOOKUP.length];
 		}
 

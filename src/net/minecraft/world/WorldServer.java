@@ -97,7 +97,7 @@ public class WorldServer extends World implements IThreadListener {
 	private final Teleporter worldTeleporter;
 	private final SpawnerAnimals mobSpawner = new SpawnerAnimals();
 	protected final VillageSiege villageSiege = new VillageSiege(this);
-	private WorldServer.ServerBlockEventList[] field_147490_S = new WorldServer.ServerBlockEventList[] { new WorldServer.ServerBlockEventList(), new WorldServer.ServerBlockEventList() };
+	private ServerBlockEventList[] field_147490_S = new ServerBlockEventList[] { new ServerBlockEventList(), new ServerBlockEventList() };
 	private int blockEventCacheIndex;
 	private static final List<WeightedRandomChestContent> bonusChestContent = Lists.newArrayList(new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.stick, 0, 1, 3, 10), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.planks), 0, 1, 3, 10), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log), 0, 1, 3, 10), new WeightedRandomChestContent(Items.stone_axe, 0, 1, 1, 3), new WeightedRandomChestContent(Items.wooden_axe, 0, 1, 1, 5), new WeightedRandomChestContent(Items.stone_pickaxe, 0, 1, 1, 3), new WeightedRandomChestContent(Items.wooden_pickaxe, 0, 1, 1, 5), new WeightedRandomChestContent(Items.apple, 0, 2, 3, 5), new WeightedRandomChestContent(Items.bread, 0, 2, 3, 3), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log2), 0, 1, 3, 10) });
 	private List<NextTickListEntry> pendingTickListEntriesThisTick = Lists.<NextTickListEntry>newArrayList();

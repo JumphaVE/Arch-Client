@@ -12,7 +12,7 @@ import net.minecraft.util.IRegistry;
 import net.minecraft.util.RegistrySimple;
 
 public class IMetadataSerializer {
-	private final IRegistry<String, IMetadataSerializer.Registration<? extends IMetadataSection>> metadataSectionSerializerRegistry = new RegistrySimple();
+	private final IRegistry<String, Registration<? extends IMetadataSection>> metadataSectionSerializerRegistry = new RegistrySimple();
 	private final GsonBuilder gsonBuilder = new GsonBuilder();
 
 	/**
@@ -28,7 +28,7 @@ public class IMetadataSerializer {
 	}
 
 	public <T extends IMetadataSection> void registerMetadataSectionType(IMetadataSectionSerializer<T> p_110504_1_, Class<T> p_110504_2_) {
-		this.metadataSectionSerializerRegistry.putObject(p_110504_1_.getSectionName(), new IMetadataSerializer.Registration(p_110504_1_, p_110504_2_));
+		this.metadataSectionSerializerRegistry.putObject(p_110504_1_.getSectionName(), new Registration(p_110504_1_, p_110504_2_));
 		this.gsonBuilder.registerTypeAdapter(p_110504_2_, p_110504_1_);
 		this.gson = null;
 	}
@@ -41,7 +41,7 @@ public class IMetadataSerializer {
 		} else if (!p_110503_2_.get(p_110503_1_).isJsonObject()) {
 			throw new IllegalArgumentException("Invalid metadata for \'" + p_110503_1_ + "\' - expected object, found " + p_110503_2_.get(p_110503_1_));
 		} else {
-			IMetadataSerializer.Registration<?> registration = (IMetadataSerializer.Registration) this.metadataSectionSerializerRegistry.getObject(p_110503_1_);
+			Registration<?> registration = (Registration) this.metadataSectionSerializerRegistry.getObject(p_110503_1_);
 
 			if (registration == null) {
 				throw new IllegalArgumentException("Don\'t know how to handle metadata section \'" + p_110503_1_ + "\'");

@@ -32,8 +32,8 @@ public class EntityMinecartMobSpawner extends EntityMinecart {
 		super(worldIn, p_i1726_2_, p_i1726_4_, p_i1726_6_);
 	}
 
-	public EntityMinecart.EnumMinecartType getMinecartType() {
-		return EntityMinecart.EnumMinecartType.SPAWNER;
+	public EnumMinecartType getMinecartType() {
+		return EnumMinecartType.SPAWNER;
 	}
 
 	public IBlockState getDefaultDisplayTile() {

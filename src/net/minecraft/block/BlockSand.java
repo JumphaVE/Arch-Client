@@ -13,10 +13,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 
 public class BlockSand extends BlockFalling {
-	public static final PropertyEnum<BlockSand.EnumType> VARIANT = PropertyEnum.<BlockSand.EnumType>create("variant", BlockSand.EnumType.class);
+	public static final PropertyEnum<EnumType> VARIANT = PropertyEnum.<EnumType>create("variant", EnumType.class);
 
 	public BlockSand() {
-		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockSand.EnumType.SAND));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumType.SAND));
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class BlockSand extends BlockFalling {
 	 * on the old metadata of the block.
 	 */
 	public int damageDropped(IBlockState state) {
-		return ((BlockSand.EnumType) state.getValue(VARIANT)).getMetadata();
+		return ((EnumType) state.getValue(VARIANT)).getMetadata();
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class BlockSand extends BlockFalling {
 	 * returns 4 blocks)
 	 */
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
-		for (BlockSand.EnumType blocksand$enumtype : BlockSand.EnumType.values()) {
+		for (EnumType blocksand$enumtype : EnumType.values()) {
 			list.add(new ItemStack(itemIn, 1, blocksand$enumtype.getMetadata()));
 		}
 	}
@@ -42,21 +42,21 @@ public class BlockSand extends BlockFalling {
 	 * Get the MapColor for this Block and the given BlockState
 	 */
 	public MapColor getMapColor(IBlockState state) {
-		return ((BlockSand.EnumType) state.getValue(VARIANT)).getMapColor();
+		return ((EnumType) state.getValue(VARIANT)).getMapColor();
 	}
 
 	/**
 	 * Convert the given metadata into a BlockState for this Block
 	 */
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(VARIANT, BlockSand.EnumType.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, EnumType.byMetadata(meta));
 	}
 
 	/**
 	 * Convert the BlockState into the correct metadata value
 	 */
 	public int getMetaFromState(IBlockState state) {
-		return ((BlockSand.EnumType) state.getValue(VARIANT)).getMetadata();
+		return ((EnumType) state.getValue(VARIANT)).getMetadata();
 	}
 
 	protected BlockState createBlockState() {
@@ -66,7 +66,7 @@ public class BlockSand extends BlockFalling {
 	public static enum EnumType implements IStringSerializable {
 		SAND(0, "sand", "default", MapColor.sandColor), RED_SAND(1, "red_sand", "red", MapColor.adobeColor);
 
-		private static final BlockSand.EnumType[] META_LOOKUP = new BlockSand.EnumType[values().length];
+		private static final EnumType[] META_LOOKUP = new EnumType[values().length];
 		private final int meta;
 		private final String name;
 		private final MapColor mapColor;
@@ -91,7 +91,7 @@ public class BlockSand extends BlockFalling {
 			return this.mapColor;
 		}
 
-		public static BlockSand.EnumType byMetadata(int meta) {
+		public static EnumType byMetadata(int meta) {
 			if (meta < 0 || meta >= META_LOOKUP.length) {
 				meta = 0;
 			}
@@ -108,7 +108,7 @@ public class BlockSand extends BlockFalling {
 		}
 
 		static {
-			for (BlockSand.EnumType blocksand$enumtype : values()) {
+			for (EnumType blocksand$enumtype : values()) {
 				META_LOOKUP[blocksand$enumtype.getMetadata()] = blocksand$enumtype;
 			}
 		}

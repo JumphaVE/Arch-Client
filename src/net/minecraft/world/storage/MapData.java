@@ -27,8 +27,8 @@ public class MapData extends WorldSavedData {
 
 	/** colours */
 	public byte[] colors = new byte[16384];
-	public List<MapData.MapInfo> playersArrayList = Lists.<MapData.MapInfo>newArrayList();
-	private Map<EntityPlayer, MapData.MapInfo> playersHashMap = Maps.<EntityPlayer, MapData.MapInfo>newHashMap();
+	public List<MapInfo> playersArrayList = Lists.<MapInfo>newArrayList();
+	private Map<EntityPlayer, MapInfo> playersHashMap = Maps.<EntityPlayer, MapInfo>newHashMap();
 	public Map<String, Vec4b> mapDecorations = Maps.<String, Vec4b>newLinkedHashMap();
 
 	public MapData(String mapname) {
@@ -99,7 +99,7 @@ public class MapData extends WorldSavedData {
 	 */
 	public void updateVisiblePlayers(EntityPlayer player, ItemStack mapStack) {
 		if (!this.playersHashMap.containsKey(player)) {
-			MapData.MapInfo mapdata$mapinfo = new MapData.MapInfo(player);
+			MapInfo mapdata$mapinfo = new MapInfo(player);
 			this.playersHashMap.put(player, mapdata$mapinfo);
 			this.playersArrayList.add(mapdata$mapinfo);
 		}
@@ -109,7 +109,7 @@ public class MapData extends WorldSavedData {
 		}
 
 		for (int i = 0; i < this.playersArrayList.size(); ++i) {
-			MapData.MapInfo mapdata$mapinfo1 = (MapData.MapInfo) this.playersArrayList.get(i);
+			MapInfo mapdata$mapinfo1 = (MapInfo) this.playersArrayList.get(i);
 
 			if (!mapdata$mapinfo1.entityplayerObj.isDead && (mapdata$mapinfo1.entityplayerObj.inventory.hasItemStack(mapStack) || mapStack.isOnItemFrame())) {
 				if (!mapStack.isOnItemFrame() && mapdata$mapinfo1.entityplayerObj.dimension == this.dimension) {
@@ -187,23 +187,23 @@ public class MapData extends WorldSavedData {
 	}
 
 	public Packet getMapPacket(ItemStack mapStack, World worldIn, EntityPlayer player) {
-		MapData.MapInfo mapdata$mapinfo = (MapData.MapInfo) this.playersHashMap.get(player);
+		MapInfo mapdata$mapinfo = (MapInfo) this.playersHashMap.get(player);
 		return mapdata$mapinfo == null ? null : mapdata$mapinfo.getPacket(mapStack);
 	}
 
 	public void updateMapData(int x, int y) {
 		super.markDirty();
 
-		for (MapData.MapInfo mapdata$mapinfo : this.playersArrayList) {
+		for (MapInfo mapdata$mapinfo : this.playersArrayList) {
 			mapdata$mapinfo.update(x, y);
 		}
 	}
 
-	public MapData.MapInfo getMapInfo(EntityPlayer player) {
-		MapData.MapInfo mapdata$mapinfo = (MapData.MapInfo) this.playersHashMap.get(player);
+	public MapInfo getMapInfo(EntityPlayer player) {
+		MapInfo mapdata$mapinfo = (MapInfo) this.playersHashMap.get(player);
 
 		if (mapdata$mapinfo == null) {
-			mapdata$mapinfo = new MapData.MapInfo(player);
+			mapdata$mapinfo = new MapInfo(player);
 			this.playersHashMap.put(player, mapdata$mapinfo);
 			this.playersArrayList.add(mapdata$mapinfo);
 		}

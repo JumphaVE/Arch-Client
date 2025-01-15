@@ -6,9 +6,9 @@ import java.util.concurrent.FutureTask;
 import org.apache.logging.log4j.Logger;
 
 public class Util {
-	public static Util.EnumOS getOSType() {
+	public static EnumOS getOSType() {
 		String s = System.getProperty("os.name").toLowerCase();
-		return s.contains("win") ? Util.EnumOS.WINDOWS : (s.contains("mac") ? Util.EnumOS.OSX : (s.contains("solaris") ? Util.EnumOS.SOLARIS : (s.contains("sunos") ? Util.EnumOS.SOLARIS : (s.contains("linux") ? Util.EnumOS.LINUX : (s.contains("unix") ? Util.EnumOS.LINUX : Util.EnumOS.UNKNOWN)))));
+		return s.contains("win") ? EnumOS.WINDOWS : (s.contains("mac") ? EnumOS.OSX : (s.contains("solaris") ? EnumOS.SOLARIS : (s.contains("sunos") ? EnumOS.SOLARIS : (s.contains("linux") ? EnumOS.LINUX : (s.contains("unix") ? EnumOS.LINUX : EnumOS.UNKNOWN)))));
 	}
 
 	public static <V> V func_181617_a(FutureTask<V> p_181617_0_, Logger p_181617_1_) {

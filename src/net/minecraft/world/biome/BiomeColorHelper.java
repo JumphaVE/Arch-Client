@@ -4,23 +4,23 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 public class BiomeColorHelper {
-	private static final BiomeColorHelper.ColorResolver field_180291_a = new BiomeColorHelper.ColorResolver() {
+	private static final ColorResolver field_180291_a = new ColorResolver() {
 		public int getColorAtPos(BiomeGenBase p_180283_1_, BlockPos blockPosition) {
 			return p_180283_1_.getGrassColorAtPos(blockPosition);
 		}
 	};
-	private static final BiomeColorHelper.ColorResolver field_180289_b = new BiomeColorHelper.ColorResolver() {
+	private static final ColorResolver field_180289_b = new ColorResolver() {
 		public int getColorAtPos(BiomeGenBase p_180283_1_, BlockPos blockPosition) {
 			return p_180283_1_.getFoliageColorAtPos(blockPosition);
 		}
 	};
-	private static final BiomeColorHelper.ColorResolver field_180290_c = new BiomeColorHelper.ColorResolver() {
+	private static final ColorResolver field_180290_c = new ColorResolver() {
 		public int getColorAtPos(BiomeGenBase p_180283_1_, BlockPos blockPosition) {
 			return p_180283_1_.waterColorMultiplier;
 		}
 	};
 
-	private static int func_180285_a(IBlockAccess p_180285_0_, BlockPos p_180285_1_, BiomeColorHelper.ColorResolver p_180285_2_) {
+	private static int func_180285_a(IBlockAccess p_180285_0_, BlockPos p_180285_1_, ColorResolver p_180285_2_) {
 		int i = 0;
 		int j = 0;
 		int k = 0;

@@ -11,18 +11,18 @@ public class ChunkCompileTaskGenerator {
 	private final RenderChunk renderChunk;
 	private final ReentrantLock lock = new ReentrantLock();
 	private final List<Runnable> listFinishRunnables = Lists.<Runnable>newArrayList();
-	private final ChunkCompileTaskGenerator.Type type;
+	private final Type type;
 	private RegionRenderCacheBuilder regionRenderCacheBuilder;
 	private CompiledChunk compiledChunk;
-	private ChunkCompileTaskGenerator.Status status = ChunkCompileTaskGenerator.Status.PENDING;
+	private Status status = Status.PENDING;
 	private boolean finished;
 
-	public ChunkCompileTaskGenerator(RenderChunk renderChunkIn, ChunkCompileTaskGenerator.Type typeIn) {
+	public ChunkCompileTaskGenerator(RenderChunk renderChunkIn, Type typeIn) {
 		this.renderChunk = renderChunkIn;
 		this.type = typeIn;
 	}
 
-	public ChunkCompileTaskGenerator.Status getStatus() {
+	public Status getStatus() {
 		return this.status;
 	}
 
@@ -46,7 +46,7 @@ public class ChunkCompileTaskGenerator {
 		this.regionRenderCacheBuilder = regionRenderCacheBuilderIn;
 	}
 
-	public void setStatus(ChunkCompileTaskGenerator.Status statusIn) {
+	public void setStatus(Status statusIn) {
 		this.lock.lock();
 
 		try {
@@ -60,12 +60,12 @@ public class ChunkCompileTaskGenerator {
 		this.lock.lock();
 
 		try {
-			if (this.type == ChunkCompileTaskGenerator.Type.REBUILD_CHUNK && this.status != ChunkCompileTaskGenerator.Status.DONE) {
+			if (this.type == Type.REBUILD_CHUNK && this.status != Status.DONE) {
 				this.renderChunk.setNeedsUpdate(true);
 			}
 
 			this.finished = true;
-			this.status = ChunkCompileTaskGenerator.Status.DONE;
+			this.status = Status.DONE;
 
 			for (Runnable runnable : this.listFinishRunnables) {
 				runnable.run();
@@ -93,7 +93,7 @@ public class ChunkCompileTaskGenerator {
 		return this.lock;
 	}
 
-	public ChunkCompileTaskGenerator.Type getType() {
+	public Type getType() {
 		return this.type;
 	}
 

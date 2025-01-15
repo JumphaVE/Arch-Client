@@ -100,7 +100,7 @@ public class GuiOverlayDebug extends Gui {
 			EnumFacing enumfacing = entity.getHorizontalFacing();
 			String s = "Invalid";
 
-			switch (GuiOverlayDebug.GuiOverlayDebug$1.field_178907_a[enumfacing.ordinal()]) {
+			switch (GuiOverlayDebug$1.field_178907_a[enumfacing.ordinal()]) {
 			case 1:
 				s = "Towards negative Z";
 				break;

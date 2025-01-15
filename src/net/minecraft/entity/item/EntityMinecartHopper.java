@@ -31,8 +31,8 @@ public class EntityMinecartHopper extends EntityMinecartContainer implements IHo
 		super(worldIn, p_i1721_2_, p_i1721_4_, p_i1721_6_);
 	}
 
-	public EntityMinecart.EnumMinecartType getMinecartType() {
-		return EntityMinecart.EnumMinecartType.HOPPER;
+	public EnumMinecartType getMinecartType() {
+		return EnumMinecartType.HOPPER;
 	}
 
 	public IBlockState getDefaultDisplayTile() {
