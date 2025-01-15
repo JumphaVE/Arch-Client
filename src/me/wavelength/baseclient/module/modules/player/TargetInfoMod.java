@@ -25,5 +25,4 @@ public class TargetInfoMod extends Module {
             Minecraft.getMinecraft().fontRendererObj.drawString(String.format("%s/%s", entity.getMaxHealth(), entity.getHealth()), 100, 110, 0xFFFFFFFF);
         }
     }
-
 }
