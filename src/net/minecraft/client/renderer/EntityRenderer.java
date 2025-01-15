@@ -562,7 +562,9 @@ public class EntityRenderer implements IResourceManagerReloadListener {
 	}
 
 	private void hurtCameraEffect(float partialTicks) {
-		if(BaseClient.instance.getModuleManager().getModule(NoHurtCamera.class).isToggled());
+		if(BaseClient.instance.getModuleManager().getModule(NoHurtCamera.class).isToggled()){
+			return;
+		}
 		if (this.mc.getRenderViewEntity() instanceof EntityLivingBase) {
 			EntityLivingBase entitylivingbase = (EntityLivingBase) this.mc.getRenderViewEntity();
 			float f = (float) entitylivingbase.hurtTime - partialTicks;
