@@ -45,6 +45,7 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -63,10 +64,14 @@ public class RenderItem implements IResourceManagerReloadListener {
 	private static final ResourceLocation RES_ITEM_GLINT = new ResourceLocation("textures/misc/enchanted_item_glint.png");
 	private boolean field_175058_l = true;
 
-	/** Defines the zLevel of rendering of item on GUI. */
+	/**
+	 * Defines the zLevel of rendering of item on GUI.
+	 */
 	public float zLevel;
 	private final ItemModelMesher itemModelMesher;
 	private final TextureManager textureManager;
+	private String name;
+	private Object maxHealth;
 
 	public RenderItem(TextureManager textureManager, ModelManager modelManager) {
 		this.textureManager = textureManager;
@@ -963,5 +968,13 @@ public class RenderItem implements IResourceManagerReloadListener {
 
 	public void onResourceManagerReload(IResourceManager resourceManager) {
 		this.itemModelMesher.rebuildCache();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

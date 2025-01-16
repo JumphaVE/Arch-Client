@@ -49,6 +49,7 @@ public class ModuleManager extends EventListener {
 		registerModule(new NoHurtCamera());
 		registerModule(new Sprint());
 		registerModule(new TargetInfoMod());
+		registerModule(new ModArmorHUD());
 	}
 
 	public Module getModule(Class<? extends Module> clasz) {

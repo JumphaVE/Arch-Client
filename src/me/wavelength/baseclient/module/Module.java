@@ -7,11 +7,13 @@ import java.util.concurrent.Executors;
 
 import me.wavelength.baseclient.BaseClient;
 import me.wavelength.baseclient.event.EventListener;
+import me.wavelength.baseclient.event.events.Render2DEvent;
 import me.wavelength.baseclient.utils.Random;
 import me.wavelength.baseclient.utils.Strings;
 import me.wavelength.baseclient.utils.Timer;
+import net.minecraft.client.renderer.WorldRenderer;
 
-public class Module extends EventListener {
+public abstract class Module extends EventListener {
 
 	protected String name;
 	protected String description;
@@ -178,4 +180,6 @@ public class Module extends EventListener {
 		moduleSettings.set("anticheat", antiCheat.name().toLowerCase());
 	}
 
+    public void render(Render2DEvent event) {
+    }
 }
