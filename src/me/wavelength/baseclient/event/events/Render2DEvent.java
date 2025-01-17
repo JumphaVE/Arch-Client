@@ -20,4 +20,12 @@ public class Render2DEvent extends Event {
 		return height;
 	}
 
+	public int getAbsoluteX() {
+		return 900;
+	}
+
+	public int getAbsoluteY() {
+		return 450;
+	}
+
 }
